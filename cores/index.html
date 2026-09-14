@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paletas de Cores — Dara Costa</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    background: #fdf8f5;
+    padding: 32px 20px;
+    color: #2d2d2d;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4a2c4a;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 36px;
+    font-style: italic;
+  }
+  .palette-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+  .palette-header {
+    padding: 20px 24px 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .palette-name {
+    font-size: 1.15rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  }
+  .palette-desc {
+    font-size: 0.82rem;
+    color: #888;
+    font-style: italic;
+    padding: 4px 24px 12px;
+  }
+  .swatches {
+    display: flex;
+    height: 100px;
+  }
+  .swatch {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    transition: flex 0.3s;
+    cursor: default;
+  }
+  .swatch:hover { flex: 1.6; }
+  .swatch-label {
+    font-size: 0.63rem;
+    color: rgba(255,255,255,0.93);
+    font-weight: bold;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.45);
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 0 3px;
+    line-height: 1.3;
+  }
+  .swatch-hex {
+    font-size: 0.58rem;
+    color: rgba(255,255,255,0.75);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    margin-top: 2px;
+  }
+  .section-label {
+    font-size: 0.68rem;
+    color: #bbb;
+    padding: 14px 24px 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .card-preview {
+    margin: 0 24px 16px;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .preview-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .preview-services {
+    font-size: 0.67rem;
+    opacity: 0.8;
+    letter-spacing: 1.2px;
+    margin-top: 4px;
+  }
+  .preview-dot {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .usage-row {
+    display: flex;
+    gap: 8px;
+    padding: 10px 24px 20px;
+    flex-wrap: wrap;
+  }
+  .usage-tag {
+    font-size: 0.7rem;
+    border-radius: 20px;
+    padding: 4px 12px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+<h1>🌸 Paletas de Cores</h1>
+<p class="subtitle">Sugestões para Dara Costa — Identidade Visual do Salão</p>
+
+<!-- PALETA 1 -->
+<div class="palette-card">
+  <div class="palette-header">
+    <span style="font-size:1.4rem">🌷</span>
+    <span class="palette-name" style="color:#c0457a">Rosa Primavera</span>
+  </div>
+  <p class="palette-desc">Feminina, alegre e sofisticada. Transmite delicadeza com energia e calor — ideal para um salão acolhedor.</p>
+  <div class="swatches">
+    <div class="swatch" style="background:#c0457a">
+      <span class="swatch-label">Rosa Principal</span><span class="swatch-hex">#C0457A</span>
+    </div>
+    <div class="swatch" style="background:#e8829b">
+      <span class="swatch-label">Rosa Claro</span><span class="swatch-hex">#E8829B</span>
+    </div>
+    <div class="swatch" style="background:#f7c5d5">
+      <span class="swatch-label">Rosa Suave</span><span class="swatch-hex">#F7C5D5</span>
+    </div>
+    <div class="swatch" style="background:#c9a84c">
+      <span class="swatch-label">Dourado</span><span class="swatch-hex">#C9A84C</span>
+    </div>
+    <div class="swatch" style="background:#2e2e2e">
+      <span class="swatch-label">Grafite</span><span class="swatch-hex">#2E2E2E</span>
+    </div>
+  </div>
+  <p class="section-label">Prévia do cartão</p>
+  <div class="card-preview" style="background:linear-gradient(135deg,#c0457a,#e8829b); color:#fff;">
+    <div>
+      <div class="preview-name">Dara Costa</div>
+      <div class="preview-services">Manicure · Pedicure · Depilação</div>
+    </div>
+    <div class="preview-dot" style="background:#c9a84c">✦</div>
+  </div>
+  <div class="usage-row">
+    <span class="usage-tag" style="background:#c0457a">Fundo principal</span>
+    <span class="usage-tag" style="background:#e8829b">Destaques</span>
+    <span class="usage-tag" style="background:#c9a84c">Ícones e títulos</span>
+    <span class="usage-tag" style="background:#2e2e2e">Texto</span>
+  </div>
+</div>
+
+<!-- PALETA 2 -->
+<div class="palette-card">
+  <div class="palette-header">
+    <span style="font-size:1.4rem">🌺</span>
+    <span class="palette-name" style="color:#d4612b">Jardim Tropical</span>
+  </div>
+  <p class="palette-desc">Vibrante e única. Remete ao Brasil com cores quentes e marcantes — perfeita para quem quer se destacar.</p>
+  <div class="swatches">
+    <div class="swatch" style="background:#d4612b">
+      <span class="swatch-label">Laranja Terra</span><span class="swatch-hex">#D4612B</span>
+    </div>
+    <div class="swatch" style="background:#e8a84c">
+      <span class="swatch-label">Âmbar</span><span class="swatch-hex">#E8A84C</span>
+    </div>
+    <div class="swatch" style="background:#2e7d5e">
+      <span class="swatch-label">Verde Tropical</span><span class="swatch-hex">#2E7D5E</span>
+    </div>
+    <div class="swatch" style="background:#f9f0e3">
+      <span class="swatch-label">Creme</span><span class="swatch-hex">#F9F0E3</span>
+    </div>
+    <div class="swatch" style="background:#1a1a2e">
+      <span class="swatch-label">Noite</span><span class="swatch-hex">#1A1A2E</span>
+    </div>
+  </div>
+  <p class="section-label">Prévia do cartão</p>
+  <div class="card-preview" style="background:linear-gradient(135deg,#1a1a2e,#2e7d5e); color:#f9f0e3;">
+    <div>
+      <div class="preview-name">Dara Costa</div>
+      <div class="preview-services">Manicure · Pedicure · Depilação</div>
+    </div>
+    <div class="preview-dot" style="background:#d4612b">✦</div>
+  </div>
+  <div class="usage-row">
+    <span class="usage-tag" style="background:#2e7d5e">Fundo principal</span>
+    <span class="usage-tag" style="background:#d4612b">Destaques</span>
+    <span class="usage-tag" style="background:#e8a84c">Ícones</span>
+    <span class="usage-tag" style="background:#1a1a2e">Texto escuro</span>
+  </div>
+</div>
+
+<!-- PALETA 3 -->
+<div class="palette-card">
+  <div class="palette-header">
+    <span style="font-size:1.4rem">🌸</span>
+    <span class="palette-name" style="color:#8e3b6e">Flor de Cerejeira</span>
+  </div>
+  <p class="palette-desc">Elegante e primaveril. Uva, lilás e dourado criam um visual luxuoso e moderno, com muito charme.</p>
+  <div class="swatches">
+    <div class="swatch" style="background:#8e3b6e">
+      <span class="swatch-label">Uva</span><span class="swatch-hex">#8E3B6E</span>
+    </div>
+    <div class="swatch" style="background:#c47fc0">
+      <span class="swatch-label">Lilás</span><span class="swatch-hex">#C47FC0</span>
+    </div>
+    <div class="swatch" style="background:#f0d4eb">
+      <span class="swatch-label">Lavanda</span><span class="swatch-hex">#F0D4EB</span>
+    </div>
+    <div class="swatch" style="background:#d4a843">
+      <span class="swatch-label">Dourado</span><span class="swatch-hex">#D4A843</span>
+    </div>
+    <div class="swatch" style="background:#3b1f3b">
+      <span class="swatch-label">Vinho Escuro</span><span class="swatch-hex">#3B1F3B</span>
+    </div>
+  </div>
+  <p class="section-label">Prévia do cartão</p>
+  <div class="card-preview" style="background:linear-gradient(135deg,#3b1f3b,#8e3b6e); color:#f0d4eb;">
+    <div>
+      <div class="preview-name">Dara Costa</div>
+      <div class="preview-services">Manicure · Pedicure · Depilação</div>
+    </div>
+    <div class="preview-dot" style="background:#d4a843">✦</div>
+  </div>
+  <div class="usage-row">
+    <span class="usage-tag" style="background:#8e3b6e">Fundo principal</span>
+    <span class="usage-tag" style="background:#c47fc0">Destaques</span>
+    <span class="usage-tag" style="background:#d4a843">Ícones e dourado</span>
+    <span class="usage-tag" style="background:#3b1f3b">Texto</span>
+  </div>
+</div>
+
+<!-- PALETA 4 -->
+<div class="palette-card">
+  <div class="palette-header">
+    <span style="font-size:1.4rem">🍃</span>
+    <span class="palette-name" style="color:#e05a5a">Coral & Menta</span>
+  </div>
+  <p class="palette-desc">Fresca, moderna e cheia de vida. O contraste vibrante de coral com verde-menta chama atenção sem exagero.</p>
+  <div class="swatches">
+    <div class="swatch" style="background:#e05a5a">
+      <span class="swatch-label">Coral</span><span class="swatch-hex">#E05A5A</span>
+    </div>
+    <div class="swatch" style="background:#f4a261">
+      <span class="swatch-label">Pêssego</span><span class="swatch-hex">#F4A261</span>
+    </div>
+    <div class="swatch" style="background:#52b788">
+      <span class="swatch-label">Menta</span><span class="swatch-hex">#52B788</span>
+    </div>
+    <div class="swatch" style="background:#f8f4e8">
+      <span class="swatch-label">Marfim</span><span class="swatch-hex">#F8F4E8</span>
+    </div>
+    <div class="swatch" style="background:#264653">
+      <span class="swatch-label">Petróleo</span><span class="swatch-hex">#264653</span>
+    </div>
+  </div>
+  <p class="section-label">Prévia do cartão</p>
+  <div class="card-preview" style="background:linear-gradient(135deg,#264653,#52b788); color:#f8f4e8;">
+    <div>
+      <div class="preview-name">Dara Costa</div>
+      <div class="preview-services">Manicure · Pedicure · Depilação</div>
+    </div>
+    <div class="preview-dot" style="background:#e05a5a">✦</div>
+  </div>
+  <div class="usage-row">
+    <span class="usage-tag" style="background:#52b788">Fundo principal</span>
+    <span class="usage-tag" style="background:#e05a5a">Destaques</span>
+    <span class="usage-tag" style="background:#f4a261">Ícones</span>
+    <span class="usage-tag" style="background:#264653">Texto</span>
+  </div>
+</div>
+
+</body>
+</html>
