@@ -753,7 +753,7 @@ button { font: inherit; }
 }
 .guide-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 80px;
   align-items: start;
 }
@@ -804,6 +804,23 @@ button { font: inherit; }
 
 /* Why-waxing → swipeable on mobile */
 .why-carousel { display: flex; flex-direction: column; margin-bottom: 40px; }
+.why-row {
+  display: flex;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.why-row:last-child { border-bottom: none; }
+.why-idx {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--gold-bright);
+  min-width: 32px;
+  padding-top: 2px;
+}
+.why-body-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+.why-body-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 @media (max-width: 768px) {
   .why-carousel {
     flex-direction: row;
@@ -828,23 +845,6 @@ button { font: inherit; }
     border-bottom: none !important;
   }
 }
-.why-row {
-  display: flex;
-  gap: 24px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.why-row:last-child { border-bottom: none; }
-.why-idx {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
-  font-style: italic;
-  color: var(--gold-bright);
-  min-width: 32px;
-  padding-top: 2px;
-}
-.why-body-title { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-.why-body-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
 
 /* Style selector (interactive) */
 .guide-styles-title {
@@ -1145,7 +1145,7 @@ button { font: inherit; }
   .services-sidebar { position: static; }
   .service-nav { flex-direction: row; flex-wrap: wrap; }
   .snav-btn { width: auto; }
-  .guide-inner { grid-template-columns: 1fr; gap: 56px; }
+  .guide-inner { grid-template-columns: minmax(0, 1fr); gap: 56px; }
   .booking-grid { grid-template-columns: 1fr; gap: 48px; }
   .location-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
