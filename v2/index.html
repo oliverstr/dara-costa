@@ -39,38 +39,12 @@ body {
   background: var(--cream);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none;
 }
 h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.1; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
-button { cursor: none; font: inherit; }
+button { font: inherit; }
 .script { font-family: 'Playball', cursive; font-weight: 400; }
-
-/* ── CURSOR ── */
-#cursor {
-  position: fixed;
-  width: 8px; height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), background 0.3s;
-  mix-blend-mode: multiply;
-}
-#cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1px solid rgba(197,160,89,0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s var(--ease-out), height 0.5s var(--ease-out), border-color 0.3s;
-}
-body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 20px; height: 20px; background: var(--red); }
-body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56px; height: 56px; border-color: var(--red); }
 
 /* ── SCROLL PROGRESS ── */
 #scroll-bar {
@@ -508,7 +482,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   position: relative;
   overflow: hidden;
   border-radius: 4px;
-  cursor: none;
 }
 .gitem:nth-child(1) { grid-row: span 2; }
 .gitem:nth-child(4) { grid-column: span 2; }
@@ -1197,15 +1170,12 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   .styles-grid { grid-template-columns: 1fr 1fr; }
   .form-card { padding: 28px 22px; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  body { cursor: auto; padding-bottom: 0; }
-  #cursor, #cursor-ring { display: none; }
+  body { padding-bottom: 0; }
 }
 </style>
 </head>
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
 <div id="scroll-bar"></div>
 
 <!-- ══ NAV ══ -->
@@ -1680,18 +1650,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 <script>
-/* ── Custom cursor ── */
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-(function raf() {
-  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; }
-  if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
-  requestAnimationFrame(raf);
-})();
-
 /* ── Scroll progress ── */
 const scrollBar = document.getElementById('scroll-bar');
 window.addEventListener('scroll', () => {
