@@ -962,6 +962,14 @@ button { font: inherit; }
   flex-shrink: 0;
   margin-top: 4px;
 }
+.booking-disclaimer {
+  margin-top: 16px;
+  font-size: 11.5px;
+  color: var(--muted);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+.booking-disclaimer strong { font-weight: 600; color: var(--muted); }
 
 /* Form / wizard card */
 .form-card {
@@ -1546,18 +1554,22 @@ button { font: inherit; }
         </div>
       </div>
 
-      <div class="form-card slide-up d2">
-        <p class="form-title">Solicitar horário</p>
-        <p class="wpanel-title">Escolha seu tratamento</p>
-        <div class="field">
-          <label for="serviceSelect">Tratamento</label>
-          <div class="select-wrap">
-            <select id="serviceSelect"></select>
+      <div>
+        <div class="form-card slide-up d2">
+          <p class="form-title">Solicitar horário</p>
+          <p class="wpanel-title">Escolha seu tratamento</p>
+          <div class="field">
+            <label for="serviceSelect">Tratamento</label>
+            <div class="select-wrap">
+              <select id="serviceSelect"></select>
+            </div>
+          </div>
+          <div class="wizard-actions">
+            <button type="button" class="btn btn-red" id="bookBtn" style="width:100%">Agendar horário</button>
           </div>
         </div>
-        <div class="wizard-actions">
-          <button type="button" class="btn btn-red" id="bookBtn" style="width:100%">Agendar horário</button>
-        </div>
+
+        <p class="booking-disclaimer slide-up d3"><strong>Informação importante sobre marcações:</strong> para garantir uma melhor organização da agenda, pedimos que os horários marcados sejam respeitados. Caso a cliente faça uma marcação e não compareça ao horário agendado, sem cancelamento prévio, uma nova marcação só poderá ser realizada mediante pagamento antecipado do serviço. Agradecemos a compreensão e o respeito pelo nosso tempo e pelo horário reservado especialmente para você.</p>
       </div>
     </div>
   </div>
