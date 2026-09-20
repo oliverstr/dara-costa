@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Dara Costa – Schönheit in guten Händen | Berlin</title>
-<meta name="description" content="Maniküre, Pediküre & Haarentfernung in Berlin. Brazilian Waxing. Termine nach Vereinbarung.">
+<title>Dara Costa – Beleza em boas mãos | Berlim</title>
+<meta name="description" content="Manicure, pedicure e depilação em Berlim. Depilação Brasileira. Agendamentos combinados.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
 /* ── TOKENS ── */
 :root {
@@ -739,6 +740,23 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   padding: 3px 8px;
   border-radius: 40px;
 }
+.btn-book-mini {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--green);
+  border: none;
+  padding: 7px 16px;
+  border-radius: 40px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s, background 0.25s;
+}
+.btn-book-mini:hover { background: var(--red); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
+.wax-row-right { display: flex; align-items: center; gap: 10px; }
 
 .wax-groups { display: flex; flex-direction: column; gap: 40px; }
 .wax-group-title {
@@ -1050,7 +1068,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   border-color: var(--red-mid);
   box-shadow: 0 0 0 4px rgba(139,0,0,0.06);
 }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .select-wrap { position: relative; }
 .select-wrap::after {
   content: '';
@@ -1063,53 +1080,7 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   pointer-events: none;
 }
 
-/* Wizard progress */
-.wprog { margin-bottom: 30px; }
-.wprog-track { height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 16px; }
-.wprog-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--gold), var(--red)); transition: width 0.5s var(--ease-out); }
-.wprog-steps { display: flex; justify-content: space-between; }
-.wprog-step {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--muted);
-}
-.wprog-step-num {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif; font-size: 13px; font-weight: 600; color: var(--muted);
-  transition: all 0.35s var(--ease-spring);
-}
-.wprog-step.active .wprog-step-num { background: var(--red); border-color: var(--red); color: white; transform: scale(1.12); }
-.wprog-step.active { color: var(--red-mid); }
-.wprog-step.done .wprog-step-num { background: var(--gold); border-color: var(--gold); color: var(--green); }
-
-/* Wizard panels */
-.wpanel { display: none; }
-.wpanel.active { display: block; animation: wpanelIn 0.4s var(--ease-out); }
-@keyframes wpanelIn { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: translateX(0); } }
 .wpanel-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--green); margin-bottom: 18px; }
-
-.chip-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; max-height: 320px; overflow-y: auto; padding-right: 2px; }
-.chip {
-  padding: 12px 18px;
-  border-radius: 40px;
-  border: 1.5px solid var(--border);
-  background: var(--white);
-  font-size: 13px; font-weight: 500; color: var(--text);
-  transition: all 0.25s var(--ease-out);
-  white-space: nowrap;
-}
-.chip.active { background: linear-gradient(135deg, var(--red-mid), var(--red)); color: white; border-color: var(--red); box-shadow: 0 8px 20px rgba(139,0,0,0.25); }
-.chip:active { transform: scale(0.93); }
-
-.wizard-summary { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-top: 8px; }
-.wsum-row { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; padding: 8px 0; border-bottom: 1px solid rgba(197,160,89,0.12); }
-.wsum-row:last-child { border-bottom: none; }
-.wsum-key { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-weight: 700; }
-.wsum-val { color: var(--green); font-weight: 500; text-align: right; }
 
 .wizard-actions { display: flex; gap: 10px; margin-top: 24px; }
 .wizard-actions .btn { flex: 1; justify-content: center; padding: 15px; font-size: 11px; }
@@ -1271,10 +1242,8 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   .gitem { flex: 0 0 78%; scroll-snap-align: center; height: 320px; grid-row: unset !important; grid-column: unset !important; border-radius: 14px; }
   .dots-pager { display: flex; }
   .styles-grid { grid-template-columns: 1fr 1fr; }
-  .field-row { grid-template-columns: 1fr; }
   .form-card { padding: 28px 22px; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
-  .wprog-step span:not(.wprog-step-num) { display: none; }
   body { cursor: auto; padding-bottom: 0; }
   #cursor, #cursor-ring { display: none; }
 }
@@ -1295,13 +1264,13 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
         <span class="logo-name">Dara Costa<svg class="logo-flag" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/><path d="M7.2 8.2 Q10 5.5 12.8 8.2" stroke="white" stroke-width="0.6" fill="none"/></svg></span>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#guide">Waxing Guide</a></li>
-        <li><a href="#booking">Termin</a></li>
-        <li><a href="#location">Kontakt</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#guide">Guia de Depilação</a></li>
+        <li><a href="#booking">Agendar</a></li>
+        <li><a href="#location">Contato</a></li>
       </ul>
-      <a href="#booking" class="btn btn-dark nav-cta">Termin buchen</a>
-      <button class="hamburger" id="ham" aria-label="Menü" aria-expanded="false">
+      <a href="#booking" class="btn btn-dark nav-cta">Agendar horário</a>
+      <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1310,10 +1279,10 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 
 <!-- Mobile nav -->
 <div class="mobile-nav" id="mobnav">
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#guide" class="mob-link">Waxing Guide</a>
-  <a href="#booking" class="mob-link">Termin</a>
-  <a href="#location" class="mob-link">Kontakt</a>
+  <a href="#services" class="mob-link">Serviços</a>
+  <a href="#guide" class="mob-link">Guia de Depilação</a>
+  <a href="#booking" class="mob-link">Agendar</a>
+  <a href="#location" class="mob-link">Contato</a>
   <a href="https://wa.me/4917660942863" class="btn btn-gold" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
@@ -1321,15 +1290,15 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 <div class="quickbar" id="quickbar">
   <a href="#services" class="qb-btn" data-target="services">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 8 L12 4 L20 8 L12 12 Z"/><path d="M4 8 L4 16 L12 20 L20 16 L20 8"/></svg>
-    <span>Services</span>
+    <span>Serviços</span>
   </a>
   <a href="#guide" class="qb-btn" data-target="guide">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3 C7 8 5 12 5 15 a7 7 0 0 0 14 0 c0-3-2-7-7-12Z"/></svg>
-    <span>Waxing</span>
+    <span>Depilação</span>
   </a>
   <a href="#booking" class="qb-btn qb-main" data-target="booking">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10 L20 10 M8 3 L8 7 M16 3 L16 7"/></svg>
-    <span>Termin</span>
+    <span>Agendar</span>
   </a>
 </div>
 
@@ -1338,21 +1307,21 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   <div class="hero-text">
     <div class="hero-kicker slide-up">
       <span class="hero-kicker-line"></span>
-      <span class="eyebrow">Berlin · Prenzlauer Berg</span>
+      <span class="eyebrow">Berlim · Prenzlauer Berg</span>
     </div>
     <h1 class="hero-h1">
-      <div class="split-word" data-delay="0"><span>Schönheit</span></div>
-      <div class="split-word" data-delay="120"><span><em>in guten</em></span></div>
-      <div class="split-word" data-delay="240"><span>Händen</span></div>
+      <div class="split-word" data-delay="0"><span>Beleza</span></div>
+      <div class="split-word" data-delay="120"><span><em>em boas</em></span></div>
+      <div class="split-word" data-delay="240"><span>mãos</span></div>
     </h1>
     <div class="hero-rule" id="heroRule"></div>
     <p class="hero-sub" id="heroSub">
-      Natürliche Schönheit. Mehr Selbstbewusstsein.<br>
-      Maniküre • Pediküre • Haarentfernung in Berlin.
+      Beleza natural. Mais autoconfiança.<br>
+      Manicure • Pedicure • Depilação em Berlim.
     </p>
     <div class="hero-actions" id="heroActions">
-      <a href="#booking" class="btn btn-red magnetic">Jetzt Termin buchen</a>
-      <a href="#services" class="btn btn-outline magnetic">Services entdecken</a>
+      <a href="#booking" class="btn btn-red magnetic">Agendar agora</a>
+      <a href="#services" class="btn btn-outline magnetic">Conheça os serviços</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -1393,47 +1362,47 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   <div class="container">
     <div class="gallery-header">
       <div>
-        <div class="eyebrow slide-up" style="margin-bottom:16px">Impressionen</div>
+        <div class="eyebrow slide-up" style="margin-bottom:16px">Impressões</div>
         <h2 class="gallery-title slide-up d1">
-          Das<br><em>Studio</em>
+          O<br><em>Studio</em>
         </h2>
       </div>
       <p class="gallery-desc slide-up d2">
-        Ein Ort, der für dich gestaltet wurde — ruhig, gepflegt, einladend.
-        Jede Behandlung in einer Atmosphäre, die Wohlbefinden atmet.
+        Um lugar pensado para você — tranquilo, cuidado, acolhedor.
+        Cada tratamento em uma atmosfera que respira bem-estar.
       </p>
     </div>
     <div class="gallery-mosaic">
-      <div class="gitem" data-label="Empfang & Studio" onclick="openLB('Empfang &amp; Studio', 'assets/saloon_1.png')">
+      <div class="gitem" data-label="Recepção & Studio" onclick="openLB('Recepção &amp; Studio', 'assets/saloon_1.png')">
         <div class="gitem-parallax">
           <div class="gitem-bg" style="background:url('assets/saloon_1.png') center 30%/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Empfang &amp; Studio</span>
+        <span class="gitem-label">Recepção &amp; Studio</span>
       </div>
-      <div class="gitem" data-label="Behandlungsraum" onclick="openLB('Behandlungsraum', 'assets/saloon_3.png')">
+      <div class="gitem" data-label="Sala de tratamento" onclick="openLB('Sala de tratamento', 'assets/saloon_3.png')">
         <div class="gitem-parallax">
           <div class="gitem-bg" style="background:url('assets/saloon_3.png') center 35%/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Behandlungsraum</span>
+        <span class="gitem-label">Sala de tratamento</span>
       </div>
-      <div class="gitem" data-label="Nagelpflege-Station" onclick="openLB('Nagelpflege-Station', 'assets/saloon_2.png')">
+      <div class="gitem" data-label="Estação de manicure" onclick="openLB('Estação de manicure', 'assets/saloon_2.png')">
         <div class="gitem-parallax">
           <div class="gitem-bg" style="background:url('assets/saloon_2.png') center/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Nagelpflege-Station</span>
+        <span class="gitem-label">Estação de manicure</span>
       </div>
-      <div class="gitem" data-label="Pediküre" onclick="openLB('Pediküre', 'assets/saloon_4.png')">
+      <div class="gitem" data-label="Pedicure" onclick="openLB('Pedicure', 'assets/saloon_4.png')">
         <div class="gitem-parallax"><div class="gitem-bg" style="background:url('assets/saloon_4.png') center/cover"></div></div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Pediküre</span>
+        <span class="gitem-label">Pedicure</span>
       </div>
-      <div class="gitem" data-label="Waxing Kabine" onclick="openLB('Waxing Kabine', 'assets/saloon_5.png')">
+      <div class="gitem" data-label="Cabine de depilação" onclick="openLB('Cabine de depilação', 'assets/saloon_5.png')">
         <div class="gitem-parallax"><div class="gitem-bg" style="background:url('assets/saloon_5.png') center/cover"></div></div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Waxing Kabine</span>
+        <span class="gitem-label">Cabine de depilação</span>
       </div>
     </div>
     <div class="dots-pager" id="galleryDots"></div>
@@ -1442,7 +1411,7 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 
 <!-- Lightbox -->
 <div class="lb" id="lb" onclick="if(event.target===this)closeLB()" aria-modal="true">
-  <button class="lb-close" onclick="closeLB()">Schließen ✕</button>
+  <button class="lb-close" onclick="closeLB()">Fechar ✕</button>
   <div class="lb-content">
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--green)" id="lb-title"></h3>
     <img class="lb-img" id="lb-img" src="" alt="">
@@ -1454,51 +1423,22 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   <div class="container">
     <div class="services-layout">
       <div class="services-sidebar slide-up">
-        <div class="eyebrow" style="margin-bottom:16px">Preisliste</div>
-        <h2 class="services-sidebar-title">Unsere<br><em>Services</em></h2>
-        <nav class="service-nav" aria-label="Service Kategorien">
+        <div class="eyebrow" style="margin-bottom:16px">Lista de preços</div>
+        <h2 class="services-sidebar-title">Nossos<br><em>Serviços</em></h2>
+        <nav class="service-nav" aria-label="Categorias de serviço">
           <button class="snav-btn active" data-panel="nails">
-            <span class="snav-num">01</span> Maniküre &amp; Pediküre
+            <span class="snav-num">01</span> Manicure &amp; Pedicure
           </button>
           <button class="snav-btn" data-panel="waxing">
-            <span class="snav-num">02</span> Haarentfernung
+            <span class="snav-num">02</span> Depilação
           </button>
         </nav>
-        <a href="#booking" class="btn btn-dark" style="width:100%;justify-content:center">Jetzt buchen</a>
+        <a href="#booking" class="btn btn-dark" style="width:100%;justify-content:center">Agendar agora</a>
       </div>
 
       <div>
         <div class="service-panel active" id="panel-nails">
-          <div class="nail-list">
-            <div class="nail-item slide-up">
-              <div><div class="nail-name">Klassische Maniküre</div><div class="nail-sub">Cutilagem e esmaltação</div></div>
-              <div class="nail-meta"><span class="nail-duration">60 min</span><span class="nail-price">ab 35 €</span></div>
-            </div>
-            <div class="nail-item slide-up d1">
-              <div><div class="nail-name">Pediküre mit Lack</div><div class="nail-sub">Esmaltação, cutícula, esfoliação, lixamento, creme</div></div>
-              <div class="nail-meta"><span class="nail-duration">60 min</span><span class="nail-price">ab 35 €</span></div>
-            </div>
-            <div class="nail-item slide-up d2">
-              <div><div class="nail-name">Maniküre &amp; Pediküre</div><div class="nail-sub">Kombination · mit Lack</div></div>
-              <div class="nail-meta"><span class="nail-duration">120 min</span><span class="nail-price">60 €</span><span class="nail-badge">Kombi</span></div>
-            </div>
-            <div class="nail-item slide-up d3">
-              <div><div class="nail-name">Pediküre mit Shellac</div><div class="nail-sub">inkl. Peeling, Nagelhautpflege &amp; Feilen</div></div>
-              <div class="nail-meta"><span class="nail-duration">75 min</span><span class="nail-price">42 / 47 €</span></div>
-            </div>
-            <div class="nail-item slide-up d4">
-              <div><div class="nail-name">Maniküre mit Shellac</div></div>
-              <div class="nail-meta"><span class="nail-duration">60 min</span><span class="nail-price">40 €</span></div>
-            </div>
-            <div class="nail-item slide-up" style="transition-delay:0.5s">
-              <div><div class="nail-name">Gel-/Shellac-Entfernung</div></div>
-              <div class="nail-meta"><span class="nail-price">10 €</span></div>
-            </div>
-            <div class="nail-item slide-up" style="transition-delay:0.6s">
-              <div><div class="nail-name">French Design</div></div>
-              <div class="nail-meta"><span class="nail-price">+ 5 €</span></div>
-            </div>
-          </div>
+          <div class="nail-list" id="nailList"></div>
         </div>
 
         <div class="service-panel" id="panel-waxing">
@@ -1520,8 +1460,8 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   <div class="container">
     <div class="guide-inner">
       <div>
-        <div class="eyebrow guide-left-eyebrow slide-up">Haarentfernung</div>
-        <h2 class="guide-title slide-up d1">Der<br><em>Waxing</em><br>Guide</h2>
+        <div class="eyebrow guide-left-eyebrow slide-up">Depilação</div>
+        <h2 class="guide-title slide-up d1">O<br><em>Guia</em><br>de Depilação</h2>
 
         <div class="guide-steps-wrap">
           <div class="gstep-rail"><div class="gstep-rail-fill" id="gstepFill"></div></div>
@@ -1529,36 +1469,36 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
             <div class="gstep slide-up d1">
               <span class="gstep-num">01</span>
               <div class="gstep-body">
-                <div class="gstep-title">Vertrauensvolles Beratungsgespräch</div>
-                <p class="gstep-desc">Individuelle Beratung, Überprüfung der Hautempfindlichkeit und Besprechung deiner Wünsche.</p>
+                <div class="gstep-title">Conversa de confiança e avaliação</div>
+                <p class="gstep-desc">Atendimento individual, verificação da sensibilidade da pele e conversa sobre seus desejos.</p>
               </div>
             </div>
             <div class="gstep slide-up d2">
               <span class="gstep-num">02</span>
               <div class="gstep-body">
-                <div class="gstep-title">Sanfte Hautvorbereitung</div>
-                <p class="gstep-desc">Hygienische Reinigung mit anschließendem Puder oder Primer für optimale Wachshaftung.</p>
+                <div class="gstep-title">Preparação suave da pele</div>
+                <p class="gstep-desc">Limpeza higiênica seguida de pó ou primer para uma aderência ideal da cera.</p>
               </div>
             </div>
             <div class="gstep slide-up d3">
               <span class="gstep-num">03</span>
               <div class="gstep-body">
-                <div class="gstep-title">Präzise Wachsauftragung</div>
-                <p class="gstep-desc">Heißwachs für sensible Intimzonen, Warmwachs für größere Bereiche — immer passend zur Körperstelle.</p>
+                <div class="gstep-title">Aplicação precisa da cera</div>
+                <p class="gstep-desc">Cera quente para zonas íntimas sensíveis, cera morna para áreas maiores — sempre adequada à região do corpo.</p>
               </div>
             </div>
             <div class="gstep slide-up d4">
               <span class="gstep-num">04</span>
               <div class="gstep-body">
-                <div class="gstep-title">Sanfte &amp; schnelle Entfernung</div>
-                <p class="gstep-desc">Professionelle Technik für minimales Ziepen — Erfahrung und Einfühlungsvermögen stehen dabei an erster Stelle.</p>
+                <div class="gstep-title">Remoção suave &amp; rápida</div>
+                <p class="gstep-desc">Técnica profissional para o mínimo de desconforto — experiência e sensibilidade em primeiro lugar.</p>
               </div>
             </div>
             <div class="gstep slide-up" style="transition-delay:0.5s">
               <span class="gstep-num">05</span>
               <div class="gstep-body">
-                <div class="gstep-title">Beruhigende Nachpflege</div>
-                <p class="gstep-desc">Beruhigende Öle und Gele zur Vorbeugung von Rötungen — für ein angenehmes Gefühl direkt nach der Behandlung.</p>
+                <div class="gstep-title">Cuidados calmantes pós-depilação</div>
+                <p class="gstep-desc">Óleos e géis calmantes para prevenir vermelhidão — para uma sensação agradável logo após o tratamento.</p>
               </div>
             </div>
           </div>
@@ -1566,68 +1506,68 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
       </div>
 
       <div>
-        <div class="eyebrow slide-up" style="color:rgba(197,160,89,0.8);margin-bottom:20px">Warum Waxing?</div>
+        <div class="eyebrow slide-up" style="color:rgba(197,160,89,0.8);margin-bottom:20px">Por que depilar com cera?</div>
         <div class="why-carousel" id="whyCarousel">
           <div class="why-row slide-up d1">
             <span class="why-idx">i.</span>
-            <div><div class="why-body-title">Sofortige Glätte von der Wurzel</div><p class="why-body-desc">Warmes Wachs umhüllt jedes Haar und entfernt es vollständig — für ein sofort seidig-glattes Hautgefühl.</p></div>
+            <div><div class="why-body-title">Lisura imediata desde a raiz</div><p class="why-body-desc">A cera quente envolve cada pelo e o remove completamente — para uma sensação de pele sedosa e lisa desde já.</p></div>
           </div>
           <div class="why-row slide-up d2">
             <span class="why-idx">ii.</span>
-            <div><div class="why-body-title">3–5 Wochen glatte Haut</div><p class="why-body-desc">Im Gegensatz zur täglichen Rasur bleibt die Haut nach dem Waxing wochenlang glatt und gepflegt.</p></div>
+            <div><div class="why-body-title">3–5 semanas de pele lisa</div><p class="why-body-desc">Diferente do barbear diário, a pele fica lisa e cuidada por semanas após a depilação com cera.</p></div>
           </div>
           <div class="why-row slide-up d3">
             <span class="why-idx">iii.</span>
-            <div><div class="why-body-title">Feineres Nachwachsen</div><p class="why-body-desc">Mit jeder Behandlung wachsen Haare weicher und feiner nach — ein langfristig sichtbarer Effekt.</p></div>
+            <div><div class="why-body-title">Pelos mais finos com o tempo</div><p class="why-body-desc">A cada tratamento, os pelos voltam a crescer mais suaves e finos — um efeito visível a longo prazo.</p></div>
           </div>
           <div class="why-row slide-up d4">
             <span class="why-idx">iv.</span>
-            <div><div class="why-body-title">Keine Schnitte, kein Rasierbrand</div><p class="why-body-desc">Sanfter für die Haut — keine Verletzungen, keine eingewachsenen Haare durch fehlerhaftes Rasieren.</p></div>
+            <div><div class="why-body-title">Sem cortes, sem irritação do barbear</div><p class="why-body-desc">Mais suave para a pele — sem lesões, sem pelos encravados causados por um barbear malfeito.</p></div>
           </div>
         </div>
         <div class="dots-pager" id="whyDots"></div>
 
-        <h3 class="guide-styles-title slide-up">Intim-<em>Waxing</em><br>Stile</h3>
+        <h3 class="guide-styles-title slide-up">Estilos de<br>Depilação <em>Íntima</em></h3>
         <div class="style-pills" id="stylePills"></div>
         <div class="style-detail" id="styleDetail"></div>
 
         <div class="acc-list">
           <div class="acc-item slide-up" id="acc1">
             <button class="acc-trigger" onclick="toggleAcc('acc1')">
-              Vor dem Waxing <span class="acc-icon">+</span>
+              Antes da depilação <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <ul class="acc-content">
-                <li>Haarlänge mindestens 0,5 cm (ca. 2 Wochen Nachwuchs)</li>
-                <li>48 h vor der Behandlung keine Sonnenbäder oder Solarium</li>
-                <li>Keine stark parfümierten Cremes auf dem Behandlungsbereich</li>
-                <li>Sauber und ölfrei zur Behandlung erscheinen</li>
-                <li>Hautkrankheiten oder Medikamente bitte vorab mitteilen</li>
+                <li>Comprimento do pelo de pelo menos 0,5 cm (cerca de 2 semanas de crescimento)</li>
+                <li>Sem banho de sol ou solário 48h antes do tratamento</li>
+                <li>Sem cremes muito perfumados na área a ser tratada</li>
+                <li>Chegar limpo(a) e sem óleo para o tratamento</li>
+                <li>Informe previamente sobre doenças de pele ou medicamentos</li>
               </ul>
             </div>
           </div>
           <div class="acc-item slide-up d1" id="acc2">
             <button class="acc-trigger" onclick="toggleAcc('acc2')">
-              Nach dem Waxing <span class="acc-icon">+</span>
+              Depois da depilação <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <ul class="acc-content">
-                <li>24 h kein Sport, Sauna oder direkte Sonneneinstrahlung</li>
-                <li>Sanfte, parfümfreie Feuchtigkeitspflege verwenden</li>
-                <li>Keine engen Kleidungsstücke direkt nach der Behandlung</li>
-                <li>Nach 3–4 Tagen leichtes Peeling zur Vorbeugung eingewachsener Haare empfohlen</li>
+                <li>Sem esportes, sauna ou exposição direta ao sol por 24h</li>
+                <li>Use um hidratante suave e sem perfume</li>
+                <li>Evite roupas justas logo após o tratamento</li>
+                <li>Recomenda-se uma esfoliação leve após 3–4 dias para prevenir pelos encravados</li>
               </ul>
             </div>
           </div>
           <div class="acc-item slide-up d2" id="acc3">
             <button class="acc-trigger" onclick="toggleAcc('acc3')">
-              Häufige Fragen <span class="acc-icon">+</span>
+              Perguntas frequentes <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <ul class="acc-content">
-                <li><strong style="color:rgba(255,255,255,0.8)">Tut Waxing weh?</strong> Ein leichter Ziepeffekt ist normal, wird aber mit jeder Behandlung geringer.</li>
-                <li><strong style="color:rgba(255,255,255,0.8)">Wie oft?</strong> Alle 3–5 Wochen für optimale Ergebnisse empfohlen.</li>
-                <li><strong style="color:rgba(255,255,255,0.8)">Periode?</strong> Ja, möglich — die Haut ist aber empfindlicher. Bitte vorher informieren.</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">Depilar com cera dói?</strong> Um leve desconforto é normal, mas diminui a cada tratamento.</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">Com que frequência?</strong> Recomendado a cada 3–5 semanas para resultados ideais.</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">Posso ir menstruada?</strong> Sim, é possível — mas a pele fica mais sensível. Por favor, avise com antecedência.</li>
               </ul>
             </div>
           </div>
@@ -1639,31 +1579,27 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 
 <!-- ══ BOOKING ══ -->
 <section class="booking" id="booking">
-  <svg class="particle particle-drift" data-speed="0.06" style="width:74px;bottom:8%;left:4%;opacity:0.85" viewBox="0 0 40 52" fill="none" aria-hidden="true">
-    <path d="M20 2 C28 16 34 26 34 34 C34 43.4 27.7 50 20 50 C12.3 50 6 43.4 6 34 C6 26 12 16 20 2Z" fill="url(#dripGrad)"/>
-    <defs><linearGradient id="dripGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D4AF37"/><stop offset="1" stop-color="#8B0000"/></linearGradient></defs>
-  </svg>
   <div class="container">
     <div class="booking-grid">
       <div>
-        <div class="eyebrow booking-eyebrow slide-up">Termin vereinbaren</div>
-        <h2 class="booking-title slide-up d1">Buche<br>deinen<br><em>Wunschtermin</em></h2>
+        <div class="eyebrow booking-eyebrow slide-up">Agende seu horário</div>
+        <h2 class="booking-title slide-up d1">Agende<br>seu<br><em>horário desejado</em></h2>
         <p class="booking-body slide-up d2">
-          Wähle deine Behandlung in wenigen Schritten oder schreibe uns direkt auf WhatsApp —
-          wir melden uns schnellstmöglich zurück.
+          Escolha o tratamento desejado e agende seu horário diretamente em nossa agenda —
+          você recebe a confirmação por e-mail imediatamente.
         </p>
         <div class="contact-list slide-up d3">
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">Adresse</div>
-              <div class="citem-value">Ahlbecker Straße 19, 10437 Berlin</div>
+              <div class="citem-label">Endereço</div>
+              <div class="citem-value">Ahlbecker Straße 19, 10437 Berlim</div>
             </div>
           </div>
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">WhatsApp &amp; Telefon</div>
+              <div class="citem-label">WhatsApp &amp; Telefone</div>
               <div class="citem-value"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
             </div>
           </div>
@@ -1677,92 +1613,25 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">Öffnungszeiten</div>
-              <div class="citem-value">Termine nach Vereinbarung · Mo – Sa</div>
+              <div class="citem-label">Horário de atendimento</div>
+              <div class="citem-value">Agendamentos combinados · Seg – Sáb</div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="form-card slide-up d2">
-        <p class="form-title">Terminanfrage</p>
-
-        <div class="wprog">
-          <div class="wprog-track"><div class="wprog-fill" id="wprogFill"></div></div>
-          <div class="wprog-steps">
-            <div class="wprog-step active" data-step="1"><span class="wprog-step-num">1</span><span>Kategorie</span></div>
-            <div class="wprog-step" data-step="2"><span class="wprog-step-num">2</span><span>Behandlung</span></div>
-            <div class="wprog-step" data-step="3"><span class="wprog-step-num">3</span><span>Termin</span></div>
-            <div class="wprog-step" data-step="4"><span class="wprog-step-num">4</span><span>Kontakt</span></div>
+        <p class="form-title">Solicitar horário</p>
+        <p class="wpanel-title">Escolha seu tratamento</p>
+        <div class="field">
+          <label for="serviceSelect">Tratamento</label>
+          <div class="select-wrap">
+            <select id="serviceSelect"></select>
           </div>
         </div>
-
-        <div class="wizard-panels">
-          <div class="wpanel active" data-panel="1">
-            <p class="wpanel-title">Was möchtest du buchen?</p>
-            <div class="chip-grid" id="catChips">
-              <button type="button" class="chip" data-value="nails">💅 Maniküre &amp; Pediküre</button>
-              <button type="button" class="chip" data-value="waxing">🌿 Haarentfernung</button>
-              <button type="button" class="chip" data-value="combo">✨ Kombination</button>
-            </div>
-          </div>
-          <div class="wpanel" data-panel="2">
-            <p class="wpanel-title">Welche Behandlung?</p>
-            <div class="chip-grid" id="serviceChips"></div>
-          </div>
-          <div class="wpanel" data-panel="3">
-            <p class="wpanel-title">Wann passt es dir?</p>
-            <div class="field">
-              <label for="wdt">Wunschdatum</label>
-              <input type="date" id="wdt">
-            </div>
-            <div class="field">
-              <label for="wtm">Uhrzeit</label>
-              <div class="select-wrap">
-                <select id="wtm">
-                  <option>Beliebig</option>
-                  <option>09:00–10:00</option>
-                  <option>10:00–11:00</option>
-                  <option>11:00–12:00</option>
-                  <option>13:00–14:00</option>
-                  <option>14:00–15:00</option>
-                  <option>15:00–16:00</option>
-                  <option>16:00–17:00</option>
-                  <option>17:00–18:00</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="wpanel" data-panel="4">
-            <p class="wpanel-title">Deine Kontaktdaten</p>
-            <div class="field-row">
-              <div class="field">
-                <label for="wfn">Vorname</label>
-                <input type="text" id="wfn" placeholder="Vorname" required>
-              </div>
-              <div class="field">
-                <label for="wln">Nachname</label>
-                <input type="text" id="wln" placeholder="Nachname">
-              </div>
-            </div>
-            <div class="field">
-              <label for="wph">Telefon / WhatsApp</label>
-              <input type="tel" id="wph" placeholder="+49 ..." required>
-            </div>
-            <div class="field">
-              <label for="wmsg">Anmerkungen</label>
-              <input type="text" id="wmsg" placeholder="Besondere Wünsche ...">
-            </div>
-            <div class="wizard-summary" id="wSummary"></div>
-          </div>
-        </div>
-
         <div class="wizard-actions">
-          <button type="button" class="btn btn-outline" id="wBack" style="display:none">Zurück</button>
-          <button type="button" class="btn btn-dark" id="wNext">Weiter</button>
-          <button type="button" class="btn btn-red" id="wSubmit" style="display:none">Via WhatsApp senden</button>
+          <button type="button" class="btn btn-red" id="bookBtn" style="width:100%">Agendar horário</button>
         </div>
-        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-wa" style="margin-top:10px;width:100%;justify-content:center">Direkt auf WhatsApp schreiben</a>
       </div>
     </div>
   </div>
@@ -1773,19 +1642,19 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   <div class="container">
     <div class="location-grid">
       <div class="slide-up">
-        <div class="eyebrow" style="margin-bottom:16px">Anreise</div>
-        <h2 class="location-title">Besuche<br><em>uns</em></h2>
+        <div class="eyebrow" style="margin-bottom:16px">Como chegar</div>
+        <h2 class="location-title">Visite-<br><em>nos</em></h2>
         <div class="linfo-list">
           <div class="linfo-row">
-            <div class="linfo-key">Adresse</div>
-            <div class="linfo-val">Ahlbecker Straße 19<br>10437 Berlin · Prenzlauer Berg</div>
+            <div class="linfo-key">Endereço</div>
+            <div class="linfo-val">Ahlbecker Straße 19<br>10437 Berlim · Prenzlauer Berg</div>
           </div>
           <div class="linfo-row">
-            <div class="linfo-key">U-Bahn</div>
+            <div class="linfo-key">Metrô</div>
             <div class="linfo-val">Eberswalder Straße (U2) · 5 min.</div>
           </div>
           <div class="linfo-row">
-            <div class="linfo-key">Telefon</div>
+            <div class="linfo-key">Telefone</div>
             <div class="linfo-val"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
           </div>
           <div class="linfo-row">
@@ -1793,18 +1662,18 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
             <div class="linfo-val"><a href="https://instagram.com/daracosta_beauty" target="_blank" rel="noopener">@daracosta_beauty</a></div>
           </div>
           <div class="linfo-row">
-            <div class="linfo-key">Termine</div>
-            <div class="linfo-val script" style="font-size:1.25rem;color:var(--green)">Termine nach Vereinbarung – Agende seu horário!</div>
+            <div class="linfo-key">Agendamentos</div>
+            <div class="linfo-val script" style="font-size:1.25rem;color:var(--green)">Agendamentos combinados – Agende seu horário!</div>
           </div>
         </div>
-        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark">Auf WhatsApp schreiben</a>
+        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark">Escrever no WhatsApp</a>
       </div>
       <div class="slide-up d2">
         <div class="map-wrap">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0!2d13.4226!3d52.5441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e4e76d7db53%3A0x1!2sAhlbecker+Stra%C3%9Fe+19%2C+10437+Berlin!5e0!3m2!1sde!2sde!4v1699000000000"
             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Dara Costa Berlin">
+            title="Dara Costa Berlim">
           </iframe>
           <div class="map-pin">
             <svg width="30" height="40" viewBox="0 0 30 40" fill="none"><path d="M15 0C6.7 0 0 6.7 0 15c0 10 15 25 15 25s15-15 15-25C30 6.7 23.3 0 15 0Z" fill="#8B0000"/><circle cx="15" cy="15" r="6" fill="#FDFBF7"/></svg>
@@ -1823,41 +1692,42 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-dc">dC</div>
-        <div class="footer-tagline script">Deine Schönheit ist meine Leidenschaft</div>
+        <div class="footer-tagline script">Sua beleza é minha paixão</div>
       </div>
       <div>
-        <div class="footer-col-title">Navigation</div>
+        <div class="footer-col-title">Navegação</div>
         <div class="footer-links">
-          <a href="#services">Services</a>
-          <a href="#guide">Waxing Guide</a>
-          <a href="#booking">Termin buchen</a>
-          <a href="#location">Kontakt &amp; Lage</a>
+          <a href="#services">Serviços</a>
+          <a href="#guide">Guia de Depilação</a>
+          <a href="#booking">Agendar horário</a>
+          <a href="#location">Contato &amp; Localização</a>
         </div>
       </div>
       <div>
-        <div class="footer-col-title">Kontakt</div>
+        <div class="footer-col-title">Contato</div>
         <div class="footer-links">
           <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://instagram.com/daracosta_beauty" target="_blank" rel="noopener">@daracosta_beauty</a>
           <a href="tel:+4917660942863">+49 017660942863</a>
-          <span style="color:rgba(255,255,255,0.3);font-size:13px">Ahlbecker Str. 19, Berlin</span>
+          <span style="color:rgba(255,255,255,0.3);font-size:13px">Ahlbecker Str. 19, Berlim</span>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Dara Costa · Alle Rechte vorbehalten</span>
+      <span class="footer-copy">© 2025 Dara Costa · Todos os direitos reservados</span>
       <span class="footer-flag">
-        <svg width="20" height="14" viewBox="0 0 20 14" aria-label="Brasilien">
+        <svg width="20" height="14" viewBox="0 0 20 14" aria-label="Brasil">
           <rect width="20" height="14" fill="#009C3B"/>
           <polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/>
           <circle cx="10" cy="7" r="3.2" fill="#002776"/>
         </svg>
-        Berlin · Brasil
+        Berlim · Brasil
       </span>
     </div>
   </div>
 </footer>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 <script>
 /* ── Custom cursor ── */
 const cur = document.getElementById('cursor');
@@ -1990,9 +1860,9 @@ document.querySelectorAll('.magnetic').forEach(btn => {
 
 /* ── Ticker ── */
 const TICKER_ITEMS = [
-  'Natürliche Schönheit', 'Maniküre', 'Pediküre', 'Brazilian Waxing',
-  'Pflege &amp; Wohlbefinden', 'Persönliche Beratung', 'Berlin · Prenzlauer Berg',
-  'Sauberkeit &amp; Hygiene', 'Deine Schönheit ist meine Leidenschaft',
+  'Beleza natural', 'Manicure', 'Pedicure', 'Depilação Brasileira',
+  'Cuidado &amp; Bem-estar', 'Atendimento personalizado', 'Berlim · Prenzlauer Berg',
+  'Limpeza &amp; Higiene', 'Sua beleza é minha paixão',
 ];
 function buildTicker() {
   const track = document.getElementById('tickerTrack');
@@ -2018,39 +1888,88 @@ document.querySelectorAll('.snav-btn').forEach(btn => {
   });
 });
 
+/* ── Calendly ── */
+/* Interim setup: two shared Calendly Event Types cover all services for now.
+   Once availability needs to differ per service, create one Event Type per
+   service in Calendly and give each its own entry here (or a per-item URL). */
+const CALENDLY_URLS = {
+  nails: 'https://calendly.com/stro-oliver/pedicure',
+  waxing: 'https://calendly.com/stro-oliver/30min',
+  combo: 'https://calendly.com/stro-oliver/30min',
+};
+function openCalendly(url) {
+  if (window.Calendly) {
+    Calendly.initPopupWidget({ url });
+  } else {
+    window.open(url, '_blank');
+  }
+}
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-book-mini');
+  if (!btn) return;
+  openCalendly(btn.dataset.calendly);
+});
+
+/* ── Nail & pedicure data ── */
+const NAILS = [
+  { name: 'Manicure Clássica', sub: 'Cutilagem e esmaltação', duration: '60 min', price: 'a partir de 35 €' },
+  { name: 'Pedicure com esmalte', sub: 'Esmaltação, cutícula, esfoliação, lixamento, creme', duration: '60 min', price: 'a partir de 35 €' },
+  { name: 'Manicure & Pedicure', sub: 'Combinação · com esmalte', duration: '120 min', price: '60 €', badge: 'Combo' },
+  { name: 'Pedicure com Shellac', sub: 'inclui esfoliação, cuidado da cutícula & lixamento', duration: '75 min', price: '42 / 47 €' },
+  { name: 'Manicure com Shellac', duration: '60 min', price: '40 €' },
+  { name: 'Remoção de Gel/Shellac', price: '10 €' },
+  { name: 'Francesinha', price: '+ 5 €' },
+];
+function buildNails() {
+  const c = document.getElementById('nailList');
+  if (!c) return;
+  c.innerHTML = NAILS.map((n, i) => `
+    <div class="nail-item slide-up" style="transition-delay:${Math.min(i, 6) * 0.1}s">
+      <div><div class="nail-name">${n.name}</div>${n.sub ? `<div class="nail-sub">${n.sub}</div>` : ''}</div>
+      <div class="nail-meta">
+        ${n.duration ? `<span class="nail-duration">${n.duration}</span>` : ''}
+        <span class="nail-price">${n.price}</span>
+        ${n.badge ? `<span class="nail-badge">${n.badge}</span>` : ''}
+        <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.nails}">Agendar</button>
+      </div>
+    </div>`).join('');
+  c.querySelectorAll('.slide-up').forEach(el => io.observe(el));
+}
+buildNails();
+
 /* ── Wax data ── */
 const WAX = [
-  { group: 'Gesicht', items: [
-    { name: 'Augenbrauen', sub: 'mit oder ohne Form', price: '25 €' },
-    { name: 'Wangen', price: '13 €' },
-    { name: 'Kinn', price: '10 €' },
-    { name: 'Oberlippe', price: '10 €' },
-    { name: 'Nase', price: '10 €' },
+  { group: 'Rosto', items: [
+    { name: 'Sobrancelhas', sub: 'com ou sem modelagem', price: '25 €' },
+    { name: 'Bochechas', price: '13 €' },
+    { name: 'Queixo', price: '10 €' },
+    { name: 'Buço', price: '10 €' },
+    { name: 'Nariz', price: '10 €' },
   ]},
-  { group: 'Arme & Achseln', items: [
-    { name: 'Achseln', price: '15 €' },
-    { name: 'Arme komplett', price: '25 €' },
-    { name: 'Arme 1/2', price: '20 €' },
+  { group: 'Braços & Axilas', items: [
+    { name: 'Axilas', price: '15 €' },
+    { name: 'Braços completo', price: '25 €' },
+    { name: 'Braços 1/2', price: '20 €' },
   ]},
-  { group: 'Beine', items: [
-    { name: 'Beine komplett', price: '42 €' },
-    { name: 'Beine 1/2 Oberschenkel', price: '30 €' },
-    { name: 'Beine 1/2 Unterschenkel', price: '27 €' },
+  { group: 'Pernas', items: [
+    { name: 'Pernas completo', price: '42 €' },
+    { name: 'Pernas 1/2 coxa', price: '30 €' },
+    { name: 'Pernas 1/2 canela', price: '27 €' },
   ]},
-  { group: 'Intim & Bikini', items: [
-    { name: 'Bikini', price: '22 €' },
-    { name: 'Bikini Tanga exkl. Pofalte', price: '26 €' },
-    { name: 'Bikini inkl. Pofalte', sub: 'Strip, Triangle oder komplett · Streifen +5 €', price: '34 €', note: '+5 €' },
+  { group: 'Íntima & Biquíni', items: [
+    { name: 'Biquíni', price: '22 €' },
+    { name: 'Biquíni Tanga excl. entreglúteo', price: '26 €' },
+    { name: 'Biquíni incl. entreglúteo', sub: 'Strip, triângulo ou completo · Faixa +5 €', price: '34 €', note: '+5 €' },
   ]},
-  { group: 'Rücken & Körper', items: [
-    { name: 'Bauch', price: '18 €' },
-    { name: 'Brust', price: '16 €' },
-    { name: 'Rücken komplett', price: '26 €' },
-    { name: 'Schultergürtel mit Nacken', price: '16 €' },
-    { name: 'Lendenbereich', price: '16 €' },
-    { name: 'Pobacken', price: '30 €' },
-    { name: 'Pobacken 1/2', price: '20 €' },
-    { name: 'Pofalte', price: '15 €' },
+  { group: 'Costas & Corpo', items: [
+    { name: 'Barriga', price: '18 €' },
+    { name: 'Peito', price: '16 €' },
+    { name: 'Costas completo', price: '26 €' },
+    { name: 'Ombros com nuca', price: '16 €' },
+    { name: 'Região lombar', price: '16 €' },
+    { name: 'Glúteos', price: '30 €' },
+    { name: 'Glúteos 1/2', price: '20 €' },
+    { name: 'Entreglúteo', price: '15 €' },
   ]},
 ];
 function buildWax() {
@@ -2062,7 +1981,10 @@ function buildWax() {
       <div class="wax-rows">${g.items.map(i => `
         <div class="wax-row">
           <span class="wax-row-name">${i.name}${i.sub ? `<small>${i.sub}</small>` : ''}</span>
-          <span class="wax-row-price">${i.price}${i.note ? `<span class="wax-note-tag">${i.note}</span>` : ''}</span>
+          <span class="wax-row-right">
+            <span class="wax-row-price">${i.price}${i.note ? `<span class="wax-note-tag">${i.note}</span>` : ''}</span>
+            <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.waxing}">Agendar</button>
+          </span>
         </div>`).join('')}
       </div>
     </div>`).join('');
@@ -2100,13 +2022,13 @@ function toggleAcc(id) {
 
 /* ── Intimate style selector ── */
 const STYLES = [
-  { key: 'hollywood', name: 'Hollywood', desc: 'Vollständige Haarentfernung im gesamten Intimbereich — für ein makellos glattes Ergebnis.',
+  { key: 'hollywood', name: 'Hollywood', desc: 'Remoção completa dos pelos em toda a área íntima — para um resultado impecavelmente liso.',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M20 4 C28 16 32 22 32 28 C32 34.5 26.5 38 20 38 C13.5 38 8 34.5 8 28 C8 22 12 16 20 4Z" fill="#D4AF37"/></svg>' },
-  { key: 'strip', name: 'Landing Strip', desc: 'Ein eleganter, schmaler Streifen an der Vorderseite — dezent und zeitlos.',
+  { key: 'strip', name: 'Faixa', desc: 'Uma faixa elegante e estreita na parte frontal — discreta e atemporal.',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><rect x="17" y="5" width="6" height="30" rx="3" fill="#D4AF37"/></svg>' },
-  { key: 'triangle', name: 'Triangle', desc: 'Das klassische geometrische Dreieck — natürlich und definiert.',
+  { key: 'triangle', name: 'Triângulo', desc: 'O clássico triângulo geométrico — natural e definido.',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M20 7 L32 33 L8 33 Z" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/></svg>' },
-  { key: 'bikini', name: 'Bikini / Thong', desc: 'Präzises Waxing entlang der Bikinilinie — ideal und dezent für den Alltag.',
+  { key: 'bikini', name: 'Biquíni / Tanga', desc: 'Depilação precisa ao longo da linha do biquíni — ideal e discreta para o dia a dia.',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M10 26 C10 15 30 15 30 26 C30 19 10 19 10 26Z" fill="#D4AF37"/></svg>' },
 ];
 let styleActive = 'hollywood';
@@ -2198,108 +2120,28 @@ function closeLB() {
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
 
-/* ── Booking wizard ── */
-const NAIL_LIST = ['Klassische Maniküre (ab 35 €)','Pediküre mit Lack (ab 35 €)','Maniküre & Pediküre (60 €)','Pediküre mit Shellac (42/47 €)','Maniküre mit Shellac (40 €)','Gel-/Shellac-Entfernung (10 €)','French Design (+5 €)'];
-const WAX_FLAT = WAX.flatMap(g => g.items.map(i => `${i.name} (${i.price})`));
-const COMBO = ['Maniküre + Waxing','Pediküre + Waxing','Maniküre + Pediküre + Waxing'];
-const CAT_LABEL = { nails: 'Maniküre & Pediküre', waxing: 'Haarentfernung', combo: 'Kombination' };
+/* ── Booking: service dropdown ── */
+const COMBO = ['Manicure + Depilação', 'Pedicure + Depilação', 'Manicure + Pedicure + Depilação'];
 
-let wStep = 1;
-const wState = { category: '', service: '', date: '', time: '', fn: '', ln: '', phone: '', msg: '' };
-
-function wSetStep(n) {
-  wStep = n;
-  document.querySelectorAll('.wpanel').forEach(p => p.classList.toggle('active', +p.dataset.panel === n));
-  document.querySelectorAll('.wprog-step').forEach(s => {
-    const sn = +s.dataset.step;
-    s.classList.toggle('active', sn === n);
-    s.classList.toggle('done', sn < n);
-  });
-  document.getElementById('wprogFill').style.width = ((n - 1) / 3 * 100) + '%';
-  document.getElementById('wBack').style.display = n > 1 ? 'inline-flex' : 'none';
-  document.getElementById('wNext').style.display = n < 4 ? 'inline-flex' : 'none';
-  document.getElementById('wSubmit').style.display = n === 4 ? 'inline-flex' : 'none';
-  if (n === 2) wBuildServiceChips();
-  if (n === 4) wBuildSummary();
-}
-
-function wBuildServiceChips() {
-  const grid = document.getElementById('serviceChips');
-  const list = wState.category === 'nails' ? NAIL_LIST : wState.category === 'waxing' ? WAX_FLAT : wState.category === 'combo' ? COMBO : [];
-  grid.innerHTML = list.map(item => `<button type="button" class="chip" data-value="${item.replace(/"/g, '&quot;')}">${item}</button>`).join('');
-  grid.querySelectorAll('.chip').forEach(c => {
-    c.classList.toggle('active', c.dataset.value === wState.service);
-    c.addEventListener('click', () => {
-      grid.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
-      c.classList.add('active');
-      wState.service = c.dataset.value;
-    });
-  });
-}
-
-function wBuildSummary() {
-  wState.date = document.getElementById('wdt').value;
-  wState.time = document.getElementById('wtm').value;
-  const rows = [
-    ['Kategorie', CAT_LABEL[wState.category] || '—'],
-    ['Behandlung', wState.service || '—'],
-    ['Datum', wState.date || 'Beliebig'],
-    ['Uhrzeit', (wState.time && wState.time !== 'Beliebig') ? wState.time : 'Beliebig'],
+function buildServiceOptions() {
+  const sel = document.getElementById('serviceSelect');
+  if (!sel) return;
+  const groups = [
+    { label: 'Manicure & Pedicure', url: CALENDLY_URLS.nails, items: NAILS.map(n => n.name) },
+    { label: 'Depilação', url: CALENDLY_URLS.waxing, items: WAX.flatMap(g => g.items.map(i => i.name)) },
+    { label: 'Combinação', url: CALENDLY_URLS.combo, items: COMBO },
   ];
-  document.getElementById('wSummary').innerHTML = rows.map(([k, v]) =>
-    `<div class="wsum-row"><span class="wsum-key">${k}</span><span class="wsum-val">${v}</span></div>`
+  sel.innerHTML = groups.map(g =>
+    `<optgroup label="${g.label}">${g.items.map(name => `<option value="${g.url}">${name}</option>`).join('')}</optgroup>`
   ).join('');
 }
+buildServiceOptions();
 
-document.querySelectorAll('#catChips .chip').forEach(c => {
-  c.addEventListener('click', () => {
-    document.querySelectorAll('#catChips .chip').forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    wState.category = c.dataset.value;
-    wState.service = '';
-  });
+document.getElementById('bookBtn').addEventListener('click', () => {
+  const sel = document.getElementById('serviceSelect');
+  if (!sel || !sel.value) return;
+  openCalendly(sel.value);
 });
-
-function wShakeCurrent() {
-  const panel = document.querySelector(`.wpanel[data-panel="${wStep}"]`);
-  if (!panel) return;
-  panel.classList.remove('shake');
-  requestAnimationFrame(() => panel.classList.add('shake'));
-}
-
-document.getElementById('wNext').addEventListener('click', () => {
-  if (wStep === 1 && !wState.category) { wShakeCurrent(); return; }
-  if (wStep === 2 && !wState.service) { wShakeCurrent(); return; }
-  wSetStep(Math.min(4, wStep + 1));
-});
-document.getElementById('wBack').addEventListener('click', () => {
-  wSetStep(Math.max(1, wStep - 1));
-});
-
-document.getElementById('wSubmit').addEventListener('click', () => {
-  wState.fn = document.getElementById('wfn').value;
-  wState.ln = document.getElementById('wln').value;
-  wState.phone = document.getElementById('wph').value;
-  wState.msg = document.getElementById('wmsg').value;
-  if (!wState.fn || !wState.phone) { wShakeCurrent(); return; }
-  let text = `Hallo Dara! Ich möchte einen Termin buchen.`;
-  text += `\nName: ${wState.fn} ${wState.ln}`.trimEnd();
-  if (wState.category) text += `\nKategorie: ${CAT_LABEL[wState.category]}`;
-  if (wState.service) text += `\nBehandlung: ${wState.service}`;
-  if (wState.date) text += `\nDatum: ${wState.date}`;
-  if (wState.time && wState.time !== 'Beliebig') text += `\nUhrzeit: ${wState.time}`;
-  if (wState.msg) text += `\nAnmerkung: ${wState.msg}`;
-  window.open(`https://wa.me/4917660942863?text=${encodeURIComponent(text)}`, '_blank');
-});
-
-wSetStep(1);
-
-/* ── Set min booking date ── */
-const wdtInput = document.getElementById('wdt');
-if (wdtInput) {
-  const d = new Date();
-  wdtInput.min = d.toISOString().split('T')[0];
-}
 </script>
 </body>
 </html>
