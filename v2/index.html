@@ -781,6 +781,7 @@ button { font: inherit; }
   position: relative;
 }
 .gstep:last-child { border-bottom: none; }
+.gstep-body { min-width: 0; overflow-wrap: break-word; }
 .gstep-num {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.8rem;
@@ -910,7 +911,7 @@ button { font: inherit; }
 .acc-icon { color: var(--gold); font-size: 18px; transition: transform 0.4s var(--ease-out), color 0.3s; }
 .acc-item.open .acc-icon { transform: rotate(45deg); color: var(--red-bright); }
 .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-out); }
-.acc-item.open .acc-body { max-height: 600px; }
+.acc-item.open .acc-body { max-height: 2000px; }
 .acc-content {
   padding: 0 20px 20px;
   font-size: 13px;
@@ -919,6 +920,8 @@ button { font: inherit; }
 }
 .acc-content li { display: flex; gap: 10px; margin-bottom: 6px; }
 .acc-content li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+.acc-content p { margin-bottom: 12px; }
+.acc-content p:last-child { margin-bottom: 0; }
 
 /* ═══════════════════════════
    BOOKING / WIZARD
@@ -1459,13 +1462,13 @@ button { font: inherit; }
               Antes da depilação <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
-              <ul class="acc-content">
-                <li>Comprimento do pelo de pelo menos 0,5 cm (cerca de 2 semanas de crescimento)</li>
-                <li>Sem banho de sol ou solário 48h antes do tratamento</li>
-                <li>Sem cremes muito perfumados na área a ser tratada</li>
-                <li>Chegar limpo(a) e sem óleo para o tratamento</li>
-                <li>Informe previamente sobre doenças de pele ou medicamentos</li>
-              </ul>
+              <div class="acc-content">
+                <p>Para que a sua experiência seja ainda mais confortável e o resultado mais delicado e uniforme, alguns cuidados antes do procedimento são essenciais.</p>
+                <p>No dia da depilação, mantenha a pele limpa e evite o uso de cremes, óleos ou loções na região a ser tratada, pois esses produtos podem interferir na aderência da cera.</p>
+                <p>Para uma remoção mais eficaz, recomendamos um intervalo de aproximadamente 3 a 4 semanas de crescimento dos pelos antes da sessão.</p>
+                <p>Evite também exposição ao sol ou ao solário antes do procedimento, especialmente se a pele estiver sensibilizada, irritada ou recentemente bronzeada.</p>
+                <p>Informe previamente sobre doenças de pele ou medicamentos em uso.</p>
+              </div>
             </div>
           </div>
           <div class="acc-item slide-up d1" id="acc2">
@@ -1473,12 +1476,13 @@ button { font: inherit; }
               Depois da depilação <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
-              <ul class="acc-content">
-                <li>Sem esportes, sauna ou exposição direta ao sol por 24h</li>
-                <li>Use um hidratante suave e sem perfume</li>
-                <li>Evite roupas justas logo após o tratamento</li>
-                <li>Recomenda-se uma esfoliação leve após 3–4 dias para prevenir pelos encravados</li>
-              </ul>
+              <div class="acc-content">
+                <p>Após a depilação, a pele merece um cuidado especial. Nas primeiras 24 horas, evite exposição ao sol e ao solário, sauna, banhos muito quentes e atividades que provoquem transpiração intensa.</p>
+                <p>Nesse período, também recomendamos evitar perfumes, desodorantes, produtos com álcool e cosméticos perfumados diretamente sobre a região depilada.</p>
+                <p>Prefira roupas leves e confortáveis e hidrate a pele com produtos suaves, delicados e adequados para peles sensíveis.</p>
+                <p>A esfoliação deve ser evitada nas primeiras 48 horas. Após esse período, uma esfoliação delicada pode ser incorporada à sua rotina de cuidados, auxiliando na prevenção de pelos encravados e mantendo a pele mais uniforme.</p>
+                <p>Cada detalhe faz parte do cuidado. Seguindo essas recomendações, você contribui para preservar a suavidade, o conforto e a aparência saudável da pele, prolongando a sensação de bem-estar e valorizando ainda mais o resultado da depilação.</p>
+              </div>
             </div>
           </div>
           <div class="acc-item slide-up d2" id="acc3">
