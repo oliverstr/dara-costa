@@ -339,7 +339,7 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
 .hero-text {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 140px 64px 80px 32px;
   padding-left: max(32px, calc(50vw - 580px));
   position: relative;
@@ -716,13 +716,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   align-items: center;
   gap: 8px;
 }
-.nail-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--green);
-  white-space: nowrap;
-}
 .nail-duration {
   font-size: 10px;
   letter-spacing: 0.1em;
@@ -756,7 +749,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   transition: transform 0.25s var(--ease-out), box-shadow 0.25s, background 0.25s;
 }
 .btn-book-mini:hover { background: var(--red); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
-.wax-row-right { display: flex; align-items: center; gap: 10px; }
 
 .wax-groups { display: flex; flex-direction: column; gap: 40px; }
 .wax-group-title {
@@ -768,36 +760,6 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
   margin-bottom: 16px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
-}
-.wax-rows { display: flex; flex-direction: column; gap: 0; }
-.wax-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(197,160,89,0.1);
-  gap: 16px;
-}
-.wax-row:last-child { border-bottom: none; }
-.wax-row-name { font-size: 14px; color: var(--text); line-height: 1.4; }
-.wax-row-name small { display: block; font-size: 11px; color: var(--muted); font-style: italic; }
-.wax-row-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--green);
-  white-space: nowrap;
-}
-.wax-note-tag {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--red);
-  border: 1px solid var(--red);
-  padding: 2px 6px;
-  border-radius: 3px;
-  margin-left: 6px;
 }
 
 /* ═══════════════════════════
@@ -1433,7 +1395,7 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring { width: 56p
             <span class="snav-num">02</span> Depilação
           </button>
         </nav>
-        <a href="#booking" class="btn btn-dark" style="width:100%;justify-content:center">Agendar agora</a>
+        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">Tire suas dúvidas por WhatsApp</a>
       </div>
 
       <div>
@@ -1912,13 +1874,13 @@ document.addEventListener('click', e => {
 
 /* ── Nail & pedicure data ── */
 const NAILS = [
-  { name: 'Manicure Clássica', sub: 'Cutilagem e esmaltação', duration: '60 min', price: 'a partir de 35 €' },
-  { name: 'Pedicure com esmalte', sub: 'Esmaltação, cutícula, esfoliação, lixamento, creme', duration: '60 min', price: 'a partir de 35 €' },
-  { name: 'Manicure & Pedicure', sub: 'Combinação · com esmalte', duration: '120 min', price: '60 €', badge: 'Combo' },
-  { name: 'Pedicure com Shellac', sub: 'inclui esfoliação, cuidado da cutícula & lixamento', duration: '75 min', price: '42 / 47 €' },
-  { name: 'Manicure com Shellac', duration: '60 min', price: '40 €' },
-  { name: 'Remoção de Gel/Shellac', price: '10 €' },
-  { name: 'Francesinha', price: '+ 5 €' },
+  { name: 'Manicure Clássica', sub: 'Cutilagem e esmaltação', duration: '60 min' },
+  { name: 'Pedicure com esmalte', sub: 'Esmaltação, cutícula, esfoliação, lixamento, creme', duration: '60 min' },
+  { name: 'Manicure & Pedicure', sub: 'Combinação · com esmalte', duration: '120 min', badge: 'Combo' },
+  { name: 'Pedicure com Shellac', sub: 'inclui esfoliação, cuidado da cutícula & lixamento', duration: '75 min' },
+  { name: 'Manicure com Shellac', duration: '60 min' },
+  { name: 'Remoção de Gel/Shellac', duration: '20 min' },
+  { name: 'Francesinha', duration: '10 min' },
 ];
 function buildNails() {
   const c = document.getElementById('nailList');
@@ -1928,7 +1890,6 @@ function buildNails() {
       <div><div class="nail-name">${n.name}</div>${n.sub ? `<div class="nail-sub">${n.sub}</div>` : ''}</div>
       <div class="nail-meta">
         ${n.duration ? `<span class="nail-duration">${n.duration}</span>` : ''}
-        <span class="nail-price">${n.price}</span>
         ${n.badge ? `<span class="nail-badge">${n.badge}</span>` : ''}
         <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.nails}">Agendar</button>
       </div>
@@ -1940,36 +1901,36 @@ buildNails();
 /* ── Wax data ── */
 const WAX = [
   { group: 'Rosto', items: [
-    { name: 'Sobrancelhas', sub: 'com ou sem modelagem', price: '25 €' },
-    { name: 'Bochechas', price: '13 €' },
-    { name: 'Queixo', price: '10 €' },
-    { name: 'Buço', price: '10 €' },
-    { name: 'Nariz', price: '10 €' },
+    { name: 'Sobrancelhas', sub: 'com ou sem modelagem', duration: '15 min' },
+    { name: 'Bochechas', duration: '10 min' },
+    { name: 'Queixo', duration: '10 min' },
+    { name: 'Buço', duration: '10 min' },
+    { name: 'Nariz', duration: '10 min' },
   ]},
   { group: 'Braços & Axilas', items: [
-    { name: 'Axilas', price: '15 €' },
-    { name: 'Braços completo', price: '25 €' },
-    { name: 'Braços 1/2', price: '20 €' },
+    { name: 'Axilas', duration: '10 min' },
+    { name: 'Braços completo', duration: '20 min' },
+    { name: 'Braços 1/2', duration: '15 min' },
   ]},
   { group: 'Pernas', items: [
-    { name: 'Pernas completo', price: '42 €' },
-    { name: 'Pernas 1/2 coxa', price: '30 €' },
-    { name: 'Pernas 1/2 canela', price: '27 €' },
+    { name: 'Pernas completo', duration: '40 min' },
+    { name: 'Pernas 1/2 coxa', duration: '25 min' },
+    { name: 'Pernas 1/2 canela', duration: '20 min' },
   ]},
   { group: 'Íntima & Biquíni', items: [
-    { name: 'Biquíni', price: '22 €' },
-    { name: 'Biquíni Tanga excl. entreglúteo', price: '26 €' },
-    { name: 'Biquíni incl. entreglúteo', sub: 'Strip, triângulo ou completo · Faixa +5 €', price: '34 €', note: '+5 €' },
+    { name: 'Biquíni', duration: '15 min' },
+    { name: 'Biquíni Tanga excl. entreglúteo', duration: '20 min' },
+    { name: 'Biquíni incl. entreglúteo', sub: 'Strip, triângulo ou completo', duration: '25 min' },
   ]},
   { group: 'Costas & Corpo', items: [
-    { name: 'Barriga', price: '18 €' },
-    { name: 'Peito', price: '16 €' },
-    { name: 'Costas completo', price: '26 €' },
-    { name: 'Ombros com nuca', price: '16 €' },
-    { name: 'Região lombar', price: '16 €' },
-    { name: 'Glúteos', price: '30 €' },
-    { name: 'Glúteos 1/2', price: '20 €' },
-    { name: 'Entreglúteo', price: '15 €' },
+    { name: 'Barriga', duration: '15 min' },
+    { name: 'Peito', duration: '15 min' },
+    { name: 'Costas completo', duration: '25 min' },
+    { name: 'Ombros com nuca', duration: '15 min' },
+    { name: 'Região lombar', duration: '15 min' },
+    { name: 'Glúteos', duration: '20 min' },
+    { name: 'Glúteos 1/2', duration: '15 min' },
+    { name: 'Entreglúteo', duration: '10 min' },
   ]},
 ];
 function buildWax() {
@@ -1978,13 +1939,13 @@ function buildWax() {
   c.innerHTML = WAX.map((g, gi) => `
     <div class="wax-block slide-up" style="transition-delay:${Math.min(gi,4)*0.08}s">
       <div class="wax-group-title">${g.group}</div>
-      <div class="wax-rows">${g.items.map(i => `
-        <div class="wax-row">
-          <span class="wax-row-name">${i.name}${i.sub ? `<small>${i.sub}</small>` : ''}</span>
-          <span class="wax-row-right">
-            <span class="wax-row-price">${i.price}${i.note ? `<span class="wax-note-tag">${i.note}</span>` : ''}</span>
+      <div class="nail-list">${g.items.map((i, ii) => `
+        <div class="nail-item slide-up" style="transition-delay:${Math.min(ii, 6) * 0.05}s">
+          <div><div class="nail-name">${i.name}</div>${i.sub ? `<div class="nail-sub">${i.sub}</div>` : ''}</div>
+          <div class="nail-meta">
+            ${i.duration ? `<span class="nail-duration">${i.duration}</span>` : ''}
             <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.waxing}">Agendar</button>
-          </span>
+          </div>
         </div>`).join('')}
       </div>
     </div>`).join('');
