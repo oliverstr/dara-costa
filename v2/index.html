@@ -1797,14 +1797,49 @@ document.getElementById('serviceNav').addEventListener('click', e => {
 });
 
 /* ── Booking CTA ── */
-/* Placeholder until the SumUp booking integration lands. */
-function onBook({ itemId, variantId, name }) {
-  console.log('book', { itemId, variantId, name });
+const SUMUP_VENDOR = 'test-153';
+const SUMUP_CART_URL = `https://api.sumup.com/public/bookings/${SUMUP_VENDOR}/carts`;
+const SUMUP_CHECKOUT_URL = `https://www.sumupbookings.com/${SUMUP_VENDOR}/checkout`;
+
+/* Local YYYY-MM-DD (toISOString would shift to UTC). */
+function ymd(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+async function onBook({ itemId, variantId }, btn) {
+  // Open the tab synchronously within the click so popup blockers allow it.
+  const tab = window.open('', '_blank');
+  if (btn) btn.disabled = true;
+  try {
+    const res = await fetch(SUMUP_CART_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ serviceId: itemId, variantId, position: 0 }] }),
+    });
+    if (!res.ok) throw new Error(`cart ${res.status}`);
+    const cartId = (await res.json())?.cart?.cartId;
+    if (!cartId) throw new Error('missing cartId');
+
+    const today = new Date();
+    const end = new Date(today);
+    end.setDate(end.getDate() + 6);
+    const params = new URLSearchParams({
+      selectedDate: ymd(today), startDate: ymd(today), endDate: ymd(end), cartId,
+    });
+    const url = `${SUMUP_CHECKOUT_URL}?${params}`;
+    if (tab) tab.location.href = url; else location.href = url;
+  } catch (err) {
+    console.error('Could not start booking', err);
+    if (tab) tab.close();
+    alert('Não foi possível iniciar o agendamento. Tente novamente ou fale conosco por WhatsApp.');
+  } finally {
+    if (btn) btn.disabled = false;
+  }
 }
 document.addEventListener('click', e => {
   const btn = e.target.closest('.btn-book-mini');
   if (!btn) return;
-  onBook({ ...btn.dataset });
+  onBook({ ...btn.dataset }, btn);
 });
 
 /* ── Services (generated from the SumUp export, see .github/scripts/csv_to_json.py) ── */
@@ -1976,10 +2011,10 @@ function buildServiceOptions(categories) {
   ).join('');
 }
 
-document.getElementById('bookBtn').addEventListener('click', () => {
+document.getElementById('bookBtn').addEventListener('click', e => {
   const opt = document.getElementById('serviceSelect')?.selectedOptions[0];
   if (!opt) return;
-  onBook({ itemId: opt.value, variantId: opt.dataset.variantId, name: opt.dataset.name });
+  onBook({ itemId: opt.value, variantId: opt.dataset.variantId }, e.currentTarget);
 });
 
 fetch('assets/services.json')
