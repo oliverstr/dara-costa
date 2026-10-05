@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build services.json from the newest SumUp export
+        run: |
+          CSV=$(ls v2/assets/*_items-export_*.csv 2>/dev/null | sort | tail -1)
+          if [ -z "$CSV" ]; then
+            echo "::error::No SumUp export found in v2/assets/"
+            exit 1
+          fi
+          echo "Using $CSV"
+          python3 .github/scripts/csv_to_json.py "$CSV" v2/assets/services.json
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

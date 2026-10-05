@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
 /* ── TOKENS ── */
 :root {
@@ -1358,26 +1357,11 @@ button { font: inherit; }
       <div class="services-sidebar slide-up">
         <div class="eyebrow" style="margin-bottom:16px">Lista de preços</div>
         <h2 class="services-sidebar-title">Nossos<br><em>Serviços</em></h2>
-        <nav class="service-nav" aria-label="Categorias de serviço">
-          <button class="snav-btn active" data-panel="nails">
-            <span class="snav-num">01</span> Manicure &amp; Pedicure
-          </button>
-          <button class="snav-btn" data-panel="waxing">
-            <span class="snav-num">02</span> Depilação
-          </button>
-        </nav>
+        <nav class="service-nav" id="serviceNav" aria-label="Categorias de serviço"></nav>
         <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">Tire suas dúvidas por WhatsApp</a>
       </div>
 
-      <div>
-        <div class="service-panel active" id="panel-nails">
-          <div class="nail-list" id="nailList"></div>
-        </div>
-
-        <div class="service-panel" id="panel-waxing">
-          <div class="wax-groups" id="waxGroups"></div>
-        </div>
-      </div>
+      <div id="servicePanels"></div>
     </div>
   </div>
 </section>
@@ -1664,7 +1648,6 @@ button { font: inherit; }
   </div>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 <script>
 /* ── Scroll progress ── */
 const scrollBar = document.getElementById('scroll-bar');
@@ -1800,121 +1783,59 @@ function buildTicker() {
 buildTicker();
 
 /* ── Service tabs ── */
-document.querySelectorAll('.snav-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const key = btn.dataset.panel;
-    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + key)?.classList.add('active');
-    document.querySelectorAll('#panel-' + key + ' .slide-up').forEach(el => {
-      el.classList.add('revealed');
-    });
+document.getElementById('serviceNav').addEventListener('click', e => {
+  const btn = e.target.closest('.snav-btn');
+  if (!btn) return;
+  document.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const key = btn.dataset.panel;
+  document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + key)?.classList.add('active');
+  document.querySelectorAll('#panel-' + key + ' .slide-up').forEach(el => {
+    el.classList.add('revealed');
   });
 });
 
-/* ── Calendly ── */
-/* Interim setup: two shared Calendly Event Types cover all services for now.
-   Once availability needs to differ per service, create one Event Type per
-   service in Calendly and give each its own entry here (or a per-item URL). */
-const CALENDLY_URLS = {
-  nails: 'https://calendly.com/stro-oliver/pedicure',
-  waxing: 'https://calendly.com/stro-oliver/30min',
-  combo: 'https://calendly.com/stro-oliver/30min',
-};
-function openCalendly(url) {
-  if (window.Calendly) {
-    Calendly.initPopupWidget({ url });
-  } else {
-    window.open(url, '_blank');
-  }
+/* ── Booking CTA ── */
+/* Placeholder until the SumUp booking integration lands. */
+function onBook({ itemId, variantId, name }) {
+  console.log('book', { itemId, variantId, name });
 }
 document.addEventListener('click', e => {
   const btn = e.target.closest('.btn-book-mini');
   if (!btn) return;
-  openCalendly(btn.dataset.calendly);
+  onBook({ ...btn.dataset });
 });
 
-/* ── Nail & pedicure data ── */
-const NAILS = [
-  { name: 'Manicure Clássica', sub: 'Cutilagem e esmaltação', duration: '60 min' },
-  { name: 'Pedicure com esmalte', sub: 'Esmaltação, cutícula, esfoliação, lixamento, creme', duration: '60 min' },
-  { name: 'Manicure & Pedicure', sub: 'Combinação · com esmalte', duration: '120 min', badge: 'Combo' },
-  { name: 'Pedicure com Shellac', sub: 'inclui esfoliação, cuidado da cutícula & lixamento', duration: '75 min' },
-  { name: 'Manicure com Shellac', duration: '60 min' },
-  { name: 'Remoção de Gel/Shellac', duration: '20 min' },
-  { name: 'Francesinha', duration: '10 min' },
-];
-function buildNails() {
-  const c = document.getElementById('nailList');
-  if (!c) return;
-  c.innerHTML = NAILS.map((n, i) => `
-    <div class="nail-item slide-up" style="transition-delay:${Math.min(i, 6) * 0.1}s">
-      <div><div class="nail-name">${n.name}</div>${n.sub ? `<div class="nail-sub">${n.sub}</div>` : ''}</div>
-      <div class="nail-meta">
-        ${n.duration ? `<span class="nail-duration">${n.duration}</span>` : ''}
-        ${n.badge ? `<span class="nail-badge">${n.badge}</span>` : ''}
-        <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.nails}">Agendar</button>
-      </div>
-    </div>`).join('');
-  c.querySelectorAll('.slide-up').forEach(el => io.observe(el));
+/* ── Services (generated from the SumUp export, see .github/scripts/csv_to_json.py) ── */
+function esc(v) {
+  return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
-buildNails();
-
-/* ── Wax data ── */
-const WAX = [
-  { group: 'Rosto', items: [
-    { name: 'Sobrancelhas', sub: 'com ou sem modelagem', duration: '15 min' },
-    { name: 'Bochechas', duration: '10 min' },
-    { name: 'Queixo', duration: '10 min' },
-    { name: 'Buço', duration: '10 min' },
-    { name: 'Nariz', duration: '10 min' },
-  ]},
-  { group: 'Braços & Axilas', items: [
-    { name: 'Axilas', duration: '10 min' },
-    { name: 'Braços completo', duration: '20 min' },
-    { name: 'Braços 1/2', duration: '15 min' },
-  ]},
-  { group: 'Pernas', items: [
-    { name: 'Pernas completo', duration: '40 min' },
-    { name: 'Pernas 1/2 coxa', duration: '25 min' },
-    { name: 'Pernas 1/2 canela', duration: '20 min' },
-  ]},
-  { group: 'Íntima & Biquíni', items: [
-    { name: 'Biquíni', duration: '15 min' },
-    { name: 'Biquíni Tanga excl. entreglúteo', duration: '20 min' },
-    { name: 'Biquíni incl. entreglúteo', sub: 'Strip, triângulo ou completo', duration: '25 min' },
-  ]},
-  { group: 'Costas & Corpo', items: [
-    { name: 'Barriga', duration: '15 min' },
-    { name: 'Peito', duration: '15 min' },
-    { name: 'Costas completo', duration: '25 min' },
-    { name: 'Ombros com nuca', duration: '15 min' },
-    { name: 'Região lombar', duration: '15 min' },
-    { name: 'Glúteos', duration: '20 min' },
-    { name: 'Glúteos 1/2', duration: '15 min' },
-    { name: 'Entreglúteo', duration: '10 min' },
-  ]},
-];
-function buildWax() {
-  const c = document.getElementById('waxGroups');
-  if (!c) return;
-  c.innerHTML = WAX.map((g, gi) => `
-    <div class="wax-block slide-up" style="transition-delay:${Math.min(gi,4)*0.08}s">
-      <div class="wax-group-title">${g.group}</div>
-      <div class="nail-list">${g.items.map((i, ii) => `
-        <div class="nail-item slide-up" style="transition-delay:${Math.min(ii, 6) * 0.05}s">
-          <div><div class="nail-name">${i.name}</div>${i.sub ? `<div class="nail-sub">${i.sub}</div>` : ''}</div>
-          <div class="nail-meta">
-            ${i.duration ? `<span class="nail-duration">${i.duration}</span>` : ''}
-            <button type="button" class="btn-book-mini" data-calendly="${CALENDLY_URLS.waxing}">Agendar</button>
+function renderServices(categories) {
+  document.getElementById('serviceNav').innerHTML = categories.map((c, i) => `
+    <button class="snav-btn${i === 0 ? ' active' : ''}" data-panel="${i}">
+      <span class="snav-num">${String(i + 1).padStart(2, '0')}</span> ${esc(c.name)}
+    </button>`).join('');
+  const panels = document.getElementById('servicePanels');
+  panels.innerHTML = categories.map((c, ci) => `
+    <div class="service-panel${ci === 0 ? ' active' : ''}" id="panel-${ci}">
+      <div class="wax-groups">${c.groups.map((g, gi) => `
+        <div class="wax-block slide-up" style="transition-delay:${Math.min(gi, 4) * 0.08}s">
+          ${g.name ? `<div class="wax-group-title">${esc(g.name)}</div>` : ''}
+          <div class="nail-list">${g.items.map((i, ii) => `
+            <div class="nail-item slide-up" style="transition-delay:${Math.min(ii, 6) * 0.05}s">
+              <div><div class="nail-name">${esc(i.name)}</div>${i.description ? `<div class="nail-sub">${esc(i.description)}</div>` : ''}</div>
+              <div class="nail-meta">
+                ${i.duration ? `<span class="nail-duration">${i.duration} min</span>` : ''}
+                <button type="button" class="btn-book-mini" data-item-id="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">Agendar</button>
+              </div>
+            </div>`).join('')}
           </div>
         </div>`).join('')}
       </div>
     </div>`).join('');
-  c.querySelectorAll('.slide-up').forEach(el => io.observe(el));
+  panels.querySelectorAll('.slide-up').forEach(el => io.observe(el));
 }
-buildWax();
 
 /* ── Accordion ── */
 function toggleAcc(id) {
@@ -2045,27 +1966,35 @@ function closeLB() {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
 
 /* ── Booking: service dropdown ── */
-const COMBO = ['Manicure + Depilação', 'Pedicure + Depilação', 'Manicure + Pedicure + Depilação'];
-
-function buildServiceOptions() {
+function buildServiceOptions(categories) {
   const sel = document.getElementById('serviceSelect');
   if (!sel) return;
-  const groups = [
-    { label: 'Manicure & Pedicure', url: CALENDLY_URLS.nails, items: NAILS.map(n => n.name) },
-    { label: 'Depilação', url: CALENDLY_URLS.waxing, items: WAX.flatMap(g => g.items.map(i => i.name)) },
-    { label: 'Combinação', url: CALENDLY_URLS.combo, items: COMBO },
-  ];
-  sel.innerHTML = groups.map(g =>
-    `<optgroup label="${g.label}">${g.items.map(name => `<option value="${g.url}">${name}</option>`).join('')}</optgroup>`
+  sel.innerHTML = categories.map(c =>
+    `<optgroup label="${esc(c.name)}">${c.groups.flatMap(g => g.items).map(i =>
+      `<option value="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">${esc(i.name)}</option>`
+    ).join('')}</optgroup>`
   ).join('');
 }
-buildServiceOptions();
 
 document.getElementById('bookBtn').addEventListener('click', () => {
-  const sel = document.getElementById('serviceSelect');
-  if (!sel || !sel.value) return;
-  openCalendly(sel.value);
+  const opt = document.getElementById('serviceSelect')?.selectedOptions[0];
+  if (!opt) return;
+  onBook({ itemId: opt.value, variantId: opt.dataset.variantId, name: opt.dataset.name });
 });
+
+fetch('assets/services.json')
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(categories => {
+    renderServices(categories);
+    buildServiceOptions(categories);
+  })
+  .catch(err => {
+    console.error('Could not load services', err);
+    document.getElementById('servicePanels').innerHTML =
+      '<p class="nail-sub">Lista de serviços indisponível no momento — fale conosco por <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>.</p>';
+    document.getElementById('serviceSelect').disabled = true;
+    document.getElementById('bookBtn').disabled = true;
+  });
 </script>
 </body>
 </html>
