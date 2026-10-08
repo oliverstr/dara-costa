@@ -25,19 +25,19 @@ jobs:
 
       - name: Build services.json from the newest SumUp export
         run: |
-          CSV=$(ls v2/assets/*_items-export_*.csv 2>/dev/null | sort | tail -1)
+          CSV=$(ls public/live/assets/*_items-export_*.csv 2>/dev/null | sort | tail -1)
           if [ -z "$CSV" ]; then
-            echo "::error::No SumUp export found in v2/assets/"
+            echo "::error::No SumUp export found in public/live/assets/"
             exit 1
           fi
           echo "Using $CSV"
-          python3 .github/scripts/csv_to_json.py "$CSV" v2/assets/services.json
+          python3 .github/scripts/csv_to_json.py "$CSV" public/live/assets/services.json
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: public/live
 
       - id: deployment
         uses: actions/deploy-pages@v4
