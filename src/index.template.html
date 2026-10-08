@@ -666,6 +666,69 @@ button { font: inherit; }
 .snav-btn:hover:not(.active) { background: var(--cream-dark); color: var(--green); }
 .snav-btn:active { transform: scale(0.97); }
 
+/* Ela / Ele switch: segmented pill with a sliding thumb */
+.gender-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  background: var(--cream-dark);
+}
+.gender-thumb {
+  position: absolute;
+  top: 4px; bottom: 4px; left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+  box-shadow: 0 6px 16px rgba(19,46,32,0.25);
+  transition: transform 0.5s var(--ease-out);
+}
+.gender-switch:has([data-gender="ele"][aria-pressed="true"]) .gender-thumb { transform: translateX(100%); }
+.gender-btn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: none;
+  border: 0;
+  border-radius: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.35s;
+}
+.gender-btn:hover:not([aria-pressed="true"]) { color: var(--green); }
+.gender-btn[aria-pressed="true"] { color: var(--white); }
+.gender-icon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  transition: stroke 0.35s;
+}
+.gender-btn[aria-pressed="true"] .gender-icon { stroke: var(--gold-bright); animation: genderPop 0.5s var(--ease-out); }
+@keyframes genderPop {
+  0% { transform: scale(0.6) rotate(-20deg); }
+  60% { transform: scale(1.15) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gender-thumb { transition: none; }
+  .gender-btn[aria-pressed="true"] .gender-icon { animation: none; }
+}
+
 .service-panel { display: none; }
 .service-panel.active { display: block; }
 
@@ -1401,6 +1464,11 @@ button { font: inherit; }
       <div class="services-sidebar slide-up">
         <div class="eyebrow" style="margin-bottom:16px">{{services.eyebrow}}</div>
         <h2 class="services-sidebar-title">{{services.title}}</h2>
+        <div class="gender-switch" id="genderSwitch" role="group" aria-label="{{services.genderLabel}}">
+          <span class="gender-thumb" aria-hidden="true"></span>
+          <button type="button" class="gender-btn" data-gender="ela" aria-pressed="true"><svg class="gender-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M12 14.5V22M8.5 18.5h7"/></svg>{{services.ela}}</button>
+          <button type="button" class="gender-btn" data-gender="ele" aria-pressed="false"><svg class="gender-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="14" r="5.5"/><path d="M14 10l7-7M15 3h6v6"/></svg>{{services.ele}}</button>
+        </div>
         <nav class="service-nav" id="serviceNav" aria-label="{{services.navLabel}}"></nav>
         <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">{{services.whatsapp}}</a>
       </div>
@@ -1850,7 +1918,7 @@ document.getElementById('serviceNav').addEventListener('click', e => {
 });
 
 /* ── Booking CTA ── */
-const SUMUP_VENDOR = 'test-153';
+const SUMUP_VENDOR = 'manikuere-und-pedikuere-haarentfernung';
 const SUMUP_CART_URL = `https://api.sumup.com/public/bookings/${SUMUP_VENDOR}/carts`;
 const SUMUP_CHECKOUT_URL = `https://www.sumupbookings.com/${SUMUP_VENDOR}/checkout`;
 
@@ -2070,11 +2138,33 @@ document.getElementById('bookBtn').addEventListener('click', e => {
   onBook({ itemId: opt.value, variantId: opt.dataset.variantId }, e.currentTarget);
 });
 
+/* ── Ela / Ele switch (re-renders the list and dropdown, remembers the choice) ── */
+function showGender(gender, categories, previous) {
+  const active = previous?.[document.querySelector('.snav-btn.active')?.dataset.panel]?.name;
+  document.querySelectorAll('#genderSwitch button').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.gender === gender)));
+  renderServices(categories);
+  buildServiceOptions(categories);
+  // Stay on the same category when it exists for the other gender too.
+  const idx = categories.findIndex(c => c.name === active);
+  if (idx > 0) document.querySelector(`.snav-btn[data-panel="${idx}"]`).click();
+}
+
 fetch('{{page.assets}}assets/services.json')
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(categories => {
-    renderServices(categories);
-    buildServiceOptions(categories);
+  .then(data => {
+    const services = data[document.documentElement.lang];
+    let gender = 'ela';
+    try { if (localStorage.getItem('gender') === 'ele') gender = 'ele'; } catch (err) {}
+    showGender(gender, services[gender]);
+    document.getElementById('genderSwitch').addEventListener('click', e => {
+      const btn = e.target.closest('button[data-gender]');
+      if (!btn || btn.dataset.gender === gender) return;
+      const previous = services[gender];
+      gender = btn.dataset.gender;
+      try { localStorage.setItem('gender', gender); } catch (err) {}
+      showGender(gender, services[gender], previous);
+    });
   })
   .catch(err => {
     console.error('Could not load services', err);

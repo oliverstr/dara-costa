@@ -1,0 +1,148 @@
+Item name,Variations,Option set 1,Option 1,Option set 2,Option 2,Option set 3,Option 3,Option set 4,Option 4,Is variation visible? (Yes/No),Price,Cost price,Variable price? (Yes/No),Tax rate (%),On sale in Online Store?,Regular price (before sale),Set up different prices and VAT for takeaway,Takeaway price,Takeaway tax rate,Unit,Track inventory? (Yes/No),Quantity,Low stock threshold,SKU,Barcode,Modifiers,Description (Online Store and Invoices only),Category,Display item at Checkout? (Yes/No),Display colour in POS checkout,Image 1,Image 2,Image 3,Image 4,Image 5,Image 6,Image 7,Display item in Online Store? (Yes/No),SEO title (Online Store only),SEO description (Online Store only),Shipping weight [kg] (Online Store only),Display service in Bookings? (Yes/No),Duration [minutes] (Bookings only),Location [business/customer] (Bookings only),Item id (Do not change),Variant id (Do not change)
+Axilas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Achseln / Axilas,,,Yes,30,business,3caa6df9-0489-41c0-8c34-7e8bdeec1621,
+,Axilas,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,258aa3b5-7150-4a07-92fd-283fb69b8c87
+,Achseln,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,0319e3a0-d42e-4efd-a12d-5d7b80fca989
+Axilas[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Achseln / Axilas,,,Yes,30,business,c5acbb74-0dc7-4ffc-8c52-db694e4baee4,
+,Axilas,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,a7f80f41-98e3-446d-9ebe-799d470b9a38
+,Achseln,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,b9d857ec-bb2c-4ec0-8f4f-3bcd27857774
+Barriga[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Bauch / Barriga,,,Yes,30,business,e862db51-ede4-4917-ad18-8a28f5f6d246,
+,Barriga,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,df1c6ee7-2184-4778-9a9e-e6b620889032
+,Bauch,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,9bf9def2-5d04-4032-b5c8-2e85336eaa22
+Barriga[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Bauch / Barriga,,,Yes,30,business,6e542211-2053-4ae1-acd5-b75cf103a3fc,
+,Barriga,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,521074c9-7b13-4d51-b1e3-9778201d91ed
+,Bauch,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,b9236801-dc0b-4fcb-8d7f-1bdf8133201e
+Biquíni com entreglúteo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Bikini mit Pofalte / Biquíni com entreglúteo,,,Yes,30,business,82774f02-1af9-480a-b2e5-40921affd102,
+,Biquíni com entreglúteo,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,371af697-917f-4ec6-a9a0-21aca55f304d
+,Bikini mit Pofalte,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,e9b7324d-e507-454d-b43d-97f1b2db208c
+Biquíni sem entreglúteo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Bikini ohne Pofalte / Biquíni sem entreglúteo,,,Yes,30,business,73a64260-9b7d-48e4-9d06-17fed9cf463a,
+,Biquíni sem entreglúteo,,,,,,,,,Yes,24.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,728418b5-6aab-48fd-9a36-a041d7b31e9c
+,Bikini ohne Pofalte,,,,,,,,,Yes,24.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,804eaca4-3ff5-495c-af8e-bba3ebe581bb
+Bochechas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Wangen / Bochechas,,,Yes,30,business,3b21bfdb-228d-4bbb-9203-11529f9709ee,
+,Bochechas,,,,,,,,,Yes,13.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,bfff0d48-fbfe-4761-b817-e19c2ba28e21
+,Wangen,,,,,,,,,Yes,13.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,b7010f39-08fc-4bd4-86e7-90c61e76929e
+Braços 1/2[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Arme 1/2 / Braços 1/2,,,Yes,30,business,43226e36-36ff-43fd-81b5-99b77f124d62,
+,Braços 1/2,,,,,,,,,Yes,24.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,e1b0cd28-15fb-4c10-ab09-046355a12ba9
+,Arme 1/2,,,,,,,,,Yes,24.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,dbf46c3f-ca7c-490e-b900-4be8fc3599dd
+Braços 1/2[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Arme 1/2 / Braços 1/2,,,Yes,30,business,1c400ae0-0a84-4e87-a181-d8a5d2f7420b,
+,Braços 1/2,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,271dae8b-4e57-42c0-8fff-fca53d0de2a5
+,Arme 1/2,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,f05fdb99-a253-4087-b876-6503c6b14430
+Braços completos[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Arme komplett / Braços completos,,,Yes,30,business,711e0d9a-3c9b-458a-88e2-8c7a3121b3e6,
+,Braços completos,,,,,,,,,Yes,28.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,6e376faf-923d-4cf4-a88d-075209f1cbe0
+,Arme komplett,,,,,,,,,Yes,28.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,58918ef9-d7ba-4634-99f5-20e59694d5bb
+Braços completos[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Arme komplett / Braços completos,,,Yes,30,business,7f795229-59f6-45b2-b4ff-93e51f5f93a1,
+,Braços completos,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,450d11fa-b991-43a3-b075-7a7414443da4
+,Arme komplett,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,301a402f-b116-4c18-b446-8d5167710ce2
+Buço[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Oberlippe / Buço,,,Yes,30,business,a1941a63-e07b-4946-a2ae-88c73bd15127,
+,Buço,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,b7ac9dfb-bee8-4c29-a402-feb7e8cf7c1f
+,Oberlippe,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,87251fa1-19e9-4945-94c5-9e6a1c2b2b6b
+Costas completas (região lombar e ombros com nuca)[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Rücken komplett (Lenden- und Schultergürtel mit Nacken) / Costas completas (região lombar e ombros com nuca),,,Yes,30,business,60488245-1856-4d28-9fba-9c591cb33c82,
+,Costas completas (região lombar e ombros com nuca),,,,,,,,,Yes,50.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,61b6c16a-fa07-4a87-8546-3994f528d880
+,Rücken komplett (Lenden- und Schultergürtel mit Nacken),,,,,,,,,Yes,50.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,ef46c9a6-7c86-4abe-b3e5-7ffe28fe6d14
+Costas completas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Rücken komplett / Costas completas,,,Yes,30,business,2741317d-270f-4bb6-aa5c-ca2fd003e442,
+,Costas completas,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,cacf4cd6-87c4-44ed-b9fd-fb9b62548ff0
+,Rücken komplett,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,468d75d8-c656-4673-b77c-c4f7310770bf
+Costas e ombros[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Rücken und Schulter / Costas e ombros,,,Yes,30,business,128dcc6f-387a-4c0d-a62b-09889f3dcf15,
+,Costas e ombros,,,,,,,,,Yes,40.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,e004b69f-edbd-465a-805b-28a12a0b558d
+,Rücken und Schulter,,,,,,,,,Yes,40.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,3e255d46-79b3-4baf-94bd-e6169f39f62f
+Manicure + Pedicure com Shellac[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Maniküre + Pediküre mit Shellac / Manicure + Pedicure com Shellac,,,Yes,30,business,c2d69291-a49b-4636-ac8c-3e6b7192fc68,
+,Manicure + Pedicure com Shellac,,,,,,,,,Yes,75.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,14945517-2ef5-43a4-b842-bdb1220cf24f
+,Maniküre + Pediküre mit Shellac,,,,,,,,,Yes,75.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,39a2e8ba-305e-4747-b434-9cfdd3b559aa
+Manicure + Pedicure[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Maniküre + Pediküre / Manicure + Pedicure,,,Yes,30,business,95411226-f051-424b-9ff6-45e13a5ba1d6,
+,Manicure + Pedicure,,,,,,,,,Yes,60.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,a8c95373-c6e8-4fd3-b9b6-af10841ea900
+,Maniküre + Pediküre,,,,,,,,,Yes,60.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,f40b06dd-fb30-46ec-baf9-e1eef9a29481
+Manicure + Pedicure[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Maniküre + Pediküre / Manicure + Pedicure,,,Yes,30,business,cccdb77e-4a24-4879-9e99-43dbdce7e699,
+,Manicure + Pedicure,,,,,,,,,Yes,75.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,402fefad-5079-4103-b6be-a5aa4226ec71
+,Maniküre + Pediküre,,,,,,,,,Yes,75.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,d47e3fe3-bd2e-4c9d-a321-7517e197aad5
+Manicure com Shellac[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Maniküre mit Shellac / Manicure com Shellac,,,Yes,30,business,f35ba85b-1e5a-431e-87d2-b1afa84d472e,
+,Manicure com Shellac,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,f3d5ba74-2b0c-49bb-be10-b1a598ad54b5
+,Maniküre mit Shellac,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,ac141863-b403-4fbd-a1ec-f506596ac51c
+Meia perna - Coxa[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Beine 1/2 - Oberschenkel / Meia perna - Coxa,,,Yes,30,business,05eb6df2-3cc2-4780-866c-ecc85dafb753,
+,Meia perna - Coxa,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,412c4a70-e70e-4dd0-8bcf-d329814b3f75
+,Beine 1/2 - Oberschenkel,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,bfd9e8ed-a8bf-4b69-bf63-ce4060be5855
+Meia perna - Panturrilha[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Beine 1/2 - Unterschenkel / Meia perna - Panturrilha,,,Yes,30,business,906e21f3-105b-4793-8df3-e12e15a85af3,
+,Meia perna - Panturrilha,,,,,,,,,Yes,28.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,ba5f8115-53bb-4714-87f0-fdd1cc39c56f
+,Beine 1/2 - Unterschenkel,,,,,,,,,Yes,28.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,1883e876-50b5-4c0b-81b6-b332881d4e52
+Nariz[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Nase / Nariz,,,Yes,30,business,ab61a453-e880-4220-9c57-1d42dcffbbae,
+,Nariz,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,1f556d6e-131b-4769-9c2b-936b8e79611f
+,Nase,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,0496b836-c678-4f2c-aff5-49607288ef92
+Nariz[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Nase / Nariz,,,Yes,30,business,9ffd5c61-c580-43cf-9a85-7e2289fcd83a,
+,Nariz,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,234489f9-f81b-49f3-8456-b5ccfc898a88
+,Nase,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,759444ab-4eb4-498e-9f56-0ea4ff2cfcdf
+Nuca[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Nacken / Nuca,,,Yes,30,business,2c674cfe-6c8b-45e7-8d90-ab4888579c13,
+,Nuca,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,855d4fa4-bcd2-488f-8b2c-5b3d6e771fd5
+,Nacken,,,,,,,,,Yes,16.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,c0eefdfa-efb4-4c8b-91c9-180b43dd37cf
+Ombros com nuca[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Schultergürtel mit Nacken / Ombros com nuca,,,Yes,30,business,2133d7cc-2bf4-44d4-99da-ef0252b96ffb,
+,Ombros com nuca,,,,,,,,,Yes,29.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,77d77cec-09c8-4908-bf1c-e66fc5bbd75a
+,Schultergürtel mit Nacken,,,,,,,,,Yes,29.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,cdb5b6a7-4128-4502-bf89-37b4b16c6b64
+Orelhas[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Ohren / Orelhas,,,Yes,30,business,85c63ea6-1a56-4f90-841a-4a0f1a1b0240,
+,Orelhas,,,,,,,,,Yes,12.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,4ca4e768-cdfd-4c22-8a3b-ee855569580c
+,Ohren,,,,,,,,,Yes,12.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,a16d34a6-a9d3-4048-af33-efe9d9cf5df9
+Pacote 1: Íntima + Panturrilha + Axilas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 1: Intim + Unterschenkel + Achseln / Pacote 1: Íntima + Panturrilha + Axilas,,,Yes,30,business,4bedd2fb-8c56-40c2-b40d-8df634857a7e,
+,Pacote 1: Íntima + Panturrilha + Axilas,,,,,,,,,Yes,72.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,286cb404-bd6c-4dbe-b2ec-eec3b5b402bd
+,Paket 1: Intim + Unterschenkel + Achseln,,,,,,,,,Yes,72.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,fd89af2d-c627-4daa-8099-3ce5775bf416
+Pacote 2: Pernas completas + Íntima + Axilas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 2: Beine komplett + Intim + Achseln / Pacote 2: Pernas completas + Íntima + Axilas,,,Yes,30,business,23d3ea3a-585e-4d40-a11d-3e6a6d45cac3,
+,Pacote 2: Pernas completas + Íntima + Axilas,,,,,,,,,Yes,87.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,67b9d5df-f52c-4be7-8ed0-91e5ea4d67bb
+,Paket 2: Beine komplett + Intim + Achseln,,,,,,,,,Yes,87.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,9c7d8f0d-d433-45b3-a73b-8973b5276ada
+Pacote 3: Pernas completas + Íntima[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 3: Beine komplett + Intim / Pacote 3: Pernas completas + Íntima,,,Yes,30,business,23b00538-d49a-4309-bb66-40b1cf569725,
+,Pacote 3: Pernas completas + Íntima,,,,,,,,,Yes,79.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,7c2f2d50-2b63-4b5e-86e0-9eedd6925435
+,Paket 3: Beine komplett + Intim,,,,,,,,,Yes,79.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,9d019860-117e-4de0-ba57-d5520fb6f3d3
+Pacote 4: Íntima + Meia perna[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 4: Intim + 1/2 Beine / Pacote 4: Íntima + Meia perna,,,Yes,30,business,272805b5-05fe-4911-99d8-0bd3a4faf1f0,
+,Pacote 4: Íntima + Meia perna,,,,,,,,,Yes,60.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,0ddd1094-a35e-4242-a41c-8d7babfb32f4
+,Paket 4: Intim + 1/2 Beine,,,,,,,,,Yes,60.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,55153eb8-548c-493b-bf28-03e5c45b688d
+Pacote 5: Íntima + Axilas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 5: Intim + Achseln / Pacote 5: Íntima + Axilas,,,Yes,30,business,994150b4-3c23-497a-993b-19eff6f6c190,
+,Pacote 5: Íntima + Axilas,,,,,,,,,Yes,46.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,483aedfc-b544-4117-a529-0693fd397c72
+,Paket 5: Intim + Achseln,,,,,,,,,Yes,46.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,d1ce8d94-39eb-4c9e-8d47-2544df78f782
+Pacote 6: Corpo inteiro sem rosto[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Pakete],Yes,,,,,,,,,No,Paket 6: Ganzkörper ohne Gesicht / Pacote 6: Corpo inteiro sem rosto,,,Yes,30,business,674f9920-8f39-4e2c-975c-38268fbbd6a3,
+,Pacote 6: Corpo inteiro sem rosto,,,,,,,,,Yes,178.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,755251dc-b5ca-42ad-8bc8-060ff367b04f
+,Paket 6: Ganzkörper ohne Gesicht,,,,,,,,,Yes,178.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,70600197-fd94-4cd1-bd80-729246d30ab6
+Pedicure com Shellac[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Pediküre mit Shellac / Pedicure com Shellac,,,Yes,30,business,bbbda0d0-2289-40e5-944b-bb38c048c708,
+,Pedicure com Shellac,,,,,,,,,Yes,42.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,d2127a83-a3f1-45e7-8bed-c67d2306fd20
+,Pediküre mit Shellac,,,,,,,,,Yes,42.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,a917d71a-907a-42ca-a39f-21e9c1b9d45a
+Peito[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Brust / Peito,,,Yes,30,business,cc0d0499-7768-47f8-bb04-f3d59f97ee41,
+,Peito,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,f901bca9-deb2-42bb-98f0-580e8b181111
+,Brust,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,faaff91d-39e0-41b2-83aa-2ea375573b16
+Peito[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Brust / Peito,,,Yes,30,business,4efd01cc-0a1a-48bd-93c3-c21ff4995df3,
+,Peito,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,cd110107-7770-4c54-b267-62b604497dc3
+,Brust,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,2d6a74e8-7b89-4bf4-92b9-14e7d757586b
+Pernas completas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Beine komplett / Pernas completas,,,Yes,30,business,3cf10d12-d0f5-4350-9e9b-6ef060e2aef4,
+,Pernas completas,,,,,,,,,Yes,43.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,45094ba4-8fac-4e51-9939-1f7685c1e242
+,Beine komplett,,,,,,,,,Yes,43.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,5da471a8-8429-494f-97c2-f07d22bae2ee
+Pernas completas[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Beine komplett / Pernas completas,,,Yes,30,business,d586aedd-f9a4-4aeb-a5e9-f2cba6530715,
+,Pernas completas,,,,,,,,,Yes,50.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,8b55dc69-f930-48b3-adc7-95442f0c7360
+,Beine komplett,,,,,,,,,Yes,50.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,8f45cd8e-7f12-451b-99c4-680051f7079f
+Queixo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Kinn / Queixo,,,Yes,30,business,63812121-d057-40f6-96df-325c145964dc,
+,Queixo,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,69abca99-54d0-4a4c-ad1b-53fbc2248652
+,Kinn,,,,,,,,,Yes,10.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,e0e49e82-2064-4685-9bd8-6b73ee15320d
+Região lombar[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Oberkörper],Yes,,,,,,,,,No,Lendenbereich / Região lombar,,,Yes,30,business,55176b79-3d04-4b85-a748-b01875c62fa8,
+,Região lombar,,,,,,,,,Yes,22.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,8209a081-868d-48df-8bea-5ace7299d400
+,Lendenbereich,,,,,,,,,Yes,22.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,5b13e31d-07e7-4c05-9f4a-82ab4966cb78
+Sobrancelhas[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Augenbrauen / Sobrancelhas,,,Yes,30,business,65af7fe7-a904-4fd0-8837-773742684b67,
+,Sobrancelhas,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,535c1a6f-25ae-4e0b-be56-5eb849199d45
+,Augenbrauen,,,,,,,,,Yes,25.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,c21618ea-3deb-45ad-a02a-29325b57f427
+Sobrancelhas[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Gesicht],Yes,,,,,,,,,No,Augenbrauen / Sobrancelhas,,,Yes,30,business,d2a58a58-13c9-41f7-8282-0063e2817e65,
+,Sobrancelhas,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,2eb09fe7-0768-4ab7-a227-df94cd6249a7
+,Augenbrauen,,,,,,,,,Yes,30.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,c5e2d1ce-047c-49ec-813f-1adbef269f24
+Somente Manicure[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Nur Maniküre / Somente Manicure,,,Yes,30,business,29e3b27f-ac6c-4992-ba3f-91b485270319,
+,Somente Manicure,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,31799d74-52cc-419a-8db7-e3c8b4c7965c
+,Nur Maniküre,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,d9442fc1-8487-48a5-9f2f-435d7baf60d5
+Somente Manicure[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Nur Maniküre / Somente Manicure,,,Yes,30,business,dda0f42f-82df-4045-8633-0bf44456dc07,
+,Somente Manicure,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,217e7fde-9db7-435a-bc58-e3ec81f994fd
+,Nur Maniküre,,,,,,,,,Yes,38.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,655f19e0-f6f2-4cba-b870-2e3eeb7377c7
+Somente Pedicure[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Nur Pediküre / Somente Pedicure,,,Yes,30,business,c631df48-a374-4fa5-9cdf-c7f51a8fbe6b,
+,Somente Pedicure,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,5bd0dab9-14af-49bf-86ef-6c635e29d7ce
+,Nur Pediküre,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,0623340f-35f2-4cfa-ab06-dba61f180841
+Somente Pedicure[ele],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Maniküre & Pediküre,Yes,,,,,,,,,No,Nur Pediküre / Somente Pedicure,,,Yes,30,business,66a4f72f-0f66-408f-b5a3-051549ee82cd,
+,Somente Pedicure,,,,,,,,,Yes,42.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,7ff405a7-4e3b-4493-b5b5-95b5325a19ca
+,Nur Pediküre,,,,,,,,,Yes,42.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,8048da70-28b8-4293-9cfc-5a317935ced3
+Somente entreglúteo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Nur Pofalte / Somente entreglúteo,,,Yes,30,business,ef1c094e-4da6-4851-9ff1-b0afd626efb4,
+,Somente entreglúteo,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,b410b942-685d-469c-a2ec-420580821b38
+,Nur Pofalte,,,,,,,,,Yes,15.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,bae1d0a6-4217-4ba0-8695-08898f0cbe47
+Strip longo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Langer Strip / Strip longo,,,Yes,30,business,0941e280-d110-4116-91dc-c06822542921,
+,Strip longo,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,c76e2c79-e10c-42d2-8be5-b9ad1c78e401
+,Langer Strip,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,eb9bc326-48b0-485d-b930-af06fef64d17
+Triângulo[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Dreieck / Triângulo,,,Yes,30,business,7b259ae0-972c-4545-80ad-c590f86e0b66,
+,Triângulo,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,8474523a-591b-4558-a051-07803d664feb
+,Dreieck,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,eb5ee200-a4aa-4571-b6fb-88f8ce3ced9d
+Íntima completa[ela],,,,,,,,,,,,,No,,No,,No,,,each.each,No,,,,,,,Waxing[Intim & Beine],Yes,,,,,,,,,No,Intim komplett / Íntima completa,,,Yes,30,business,90abdf1c-a543-4196-90db-98cec01a3d7c,
+,Íntima completa,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,pt,,,,,,,,,,,,,,,,,,,,,,c89d77fb-b2a9-413d-9f4f-296d35a3d349
+,Intim komplett,,,,,,,,,Yes,35.00,,,,,,,,,,,0,0,de,,,,,,,,,,,,,,,,,,,,,,c8988a29-edb6-49dc-8c00-2cfba33119b2

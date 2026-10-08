@@ -13,7 +13,7 @@ build: services pages
 
 services:
 	@test -n "$(CSV)" || { echo "No SumUp export found in $(OUT)/assets/"; exit 1; }
-	python3 .github/scripts/csv_to_json.py "$(CSV)" $(OUT)/assets/services.json
+	python3 .github/scripts/csv_to_json.py "$(CSV)" $(OUT)/assets/services.json i18n
 
 pages:
 	python3 .github/scripts/render_i18n.py src/index.template.html i18n $(OUT)
