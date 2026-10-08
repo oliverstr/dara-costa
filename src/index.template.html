@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{page.lang}}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Dara Costa – Beleza em boas mãos | Berlim</title>
-<meta name="description" content="Manicure, pedicure e depilação em Berlim. Depilação Brasileira. Agendamentos combinados.">
+<title>{{meta.title}}</title>
+<meta name="description" content="{{meta.description}}">
+<link rel="canonical" href="{{page.url}}">
+<link rel="alternate" hreflang="de" href="{{site.url}}">
+<link rel="alternate" hreflang="pt-BR" href="{{site.url}}pt/">
+<link rel="alternate" hreflang="x-default" href="{{site.url}}">
+<script>
+/* Only an explicit pick in the language switcher redirects; first visits always get German. */
+try {
+  if (document.documentElement.lang === 'de' && localStorage.getItem('lang') === 'pt-BR') location.replace('pt/' + location.hash);
+} catch (e) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
@@ -69,7 +79,9 @@ button { font: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 
 /* ── SPLIT TEXT ANIMATION ── */
-.split-word { overflow: hidden; display: inline-block; }
+/* Padding (cancelled by the negative margin) keeps descenders and italic overhang
+   inside the clip box, e.g. the "g" in "guten". */
+.split-word { overflow: hidden; display: inline-block; padding: 0 0.08em 0.14em 0; margin: 0 -0.08em -0.14em 0; }
 .split-word span {
   display: inline-block;
   transform: translateY(110%);
@@ -198,12 +210,6 @@ button { font: inherit; }
   text-transform: uppercase;
   color: var(--green);
 }
-.logo-flag {
-  display: inline-block;
-  width: 14px; height: 14px;
-  vertical-align: middle;
-  margin-left: 4px;
-}
 .nav-links {
   display: flex;
   align-items: center;
@@ -271,6 +277,37 @@ button { font: inherit; }
 .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
 .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Language switch */
+.nav-end { display: flex; align-items: center; gap: 24px; }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.nav .lang-switch {
+  padding: 6px 12px;
+  border-radius: 40px;
+  background: rgba(253,251,247,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.lang-switch a { display: inline-flex; align-items: center; gap: 5px; color: var(--muted); padding: 4px 2px; transition: color 0.3s; }
+.lang-flag { width: 14px; height: 10px; border-radius: 2px; flex-shrink: 0; opacity: 0.55; transition: opacity 0.3s; }
+.lang-switch a:hover .lang-flag, .lang-switch a[aria-current] .lang-flag { opacity: 1; }
+.mobile-nav .lang-flag { width: 20px; height: 14px; }
+.lang-switch a:hover { color: var(--red-mid); }
+.lang-switch a[aria-current] { color: var(--red); }
+.nav .lang-switch { transition: opacity 0.3s; }
+.nav:has(.hamburger.open) .lang-switch { opacity: 0; pointer-events: none; }
+.mobile-nav .lang-switch { margin-top: 28px; font-size: 13px; }
+.mobile-nav .lang-switch a, .footer .lang-switch a { color: rgba(255,255,255,0.45); }
+.mobile-nav .lang-switch a:hover, .footer .lang-switch a:hover { color: var(--white); }
+.mobile-nav .lang-switch a[aria-current], .footer .lang-switch a[aria-current] { color: var(--gold); }
 
 /* Mobile menu */
 .mobile-nav {
@@ -1157,6 +1194,9 @@ button { font: inherit; }
   .location-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .gallery-header { grid-template-columns: 1fr; }
+  /* The longer German labels don't fit inline below this width; use the menu. */
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
 }
 @media (max-width: 768px) {
   .container { padding: 0 20px; }
@@ -1193,44 +1233,48 @@ button { font: inherit; }
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Dara Costa">
-        <img src="assets/logo-mark.png" alt="" class="logo-mark">
-        <span class="logo-name">Dara Costa<svg class="logo-flag" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/><path d="M7.2 8.2 Q10 5.5 12.8 8.2" stroke="white" stroke-width="0.6" fill="none"/></svg></span>
+        <img src="{{page.assets}}assets/logo-mark.png" alt="" class="logo-mark">
+        <span class="logo-name">Dara Costa</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#guide">Guia de Depilação</a></li>
-        <li><a href="#booking">Agendar</a></li>
-        <li><a href="#location">Contato</a></li>
+        <li><a href="#services">{{nav.services}}</a></li>
+        <li><a href="#guide">{{nav.guide}}</a></li>
+        <li><a href="#booking">{{nav.book}}</a></li>
+        <li><a href="#location">{{nav.contact}}</a></li>
       </ul>
-      <a href="#booking" class="btn btn-dark nav-cta">Agendar horário</a>
-      <button class="hamburger" id="ham" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-end">
+        <div class="lang-switch" role="group" aria-label="{{a11y.language}}"><a href="{{page.root}}" hreflang="de" lang="de"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.67" fill="#000"/><rect y="4.67" width="20" height="4.67" fill="#DD0000"/><rect y="9.33" width="20" height="4.67" fill="#FFCE00"/></svg>DE</a><span aria-hidden="true">·</span><a href="{{page.root}}pt/" hreflang="pt-BR" lang="pt-BR"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT</a></div>
+        <a href="#booking" class="btn btn-dark nav-cta">{{cta.book}}</a>
+        <button class="hamburger" id="ham" aria-label="{{a11y.menu}}" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 </nav>
 
 <!-- Mobile nav -->
 <div class="mobile-nav" id="mobnav">
-  <a href="#services" class="mob-link">Serviços</a>
-  <a href="#guide" class="mob-link">Guia de Depilação</a>
-  <a href="#booking" class="mob-link">Agendar</a>
-  <a href="#location" class="mob-link">Contato</a>
+  <a href="#services" class="mob-link">{{nav.services}}</a>
+  <a href="#guide" class="mob-link">{{nav.guide}}</a>
+  <a href="#booking" class="mob-link">{{nav.book}}</a>
+  <a href="#location" class="mob-link">{{nav.contact}}</a>
+  <div class="lang-switch" role="group" aria-label="{{a11y.language}}"><a href="{{page.root}}" hreflang="de" lang="de"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.67" fill="#000"/><rect y="4.67" width="20" height="4.67" fill="#DD0000"/><rect y="9.33" width="20" height="4.67" fill="#FFCE00"/></svg>DE</a><span aria-hidden="true">·</span><a href="{{page.root}}pt/" hreflang="pt-BR" lang="pt-BR"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT</a></div>
 </div>
 
 <!-- Mobile floating glass action bar -->
 <div class="quickbar" id="quickbar">
   <a href="#services" class="qb-btn" data-target="services">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 8 L12 4 L20 8 L12 12 Z"/><path d="M4 8 L4 16 L12 20 L20 16 L20 8"/></svg>
-    <span>Serviços</span>
+    <span>{{nav.services}}</span>
   </a>
   <a href="#guide" class="qb-btn" data-target="guide">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 3 C7 8 5 12 5 15 a7 7 0 0 0 14 0 c0-3-2-7-7-12Z"/></svg>
-    <span>Depilação</span>
+    <span>{{qb.wax}}</span>
   </a>
   <a href="#booking" class="qb-btn qb-main" data-target="booking">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10 L20 10 M8 3 L8 7 M16 3 L16 7"/></svg>
-    <span>Agendar</span>
+    <span>{{nav.book}}</span>
   </a>
 </div>
 
@@ -1239,21 +1283,20 @@ button { font: inherit; }
   <div class="hero-text">
     <div class="hero-kicker slide-up">
       <span class="hero-kicker-line"></span>
-      <span class="eyebrow">Berlim · Prenzlauer Berg</span>
+      <span class="eyebrow">{{hero.kicker}}</span>
     </div>
     <h1 class="hero-h1">
-      <div class="split-word" data-delay="0"><span>Beleza</span></div>
-      <div class="split-word" data-delay="120"><span><em>em boas</em></span></div>
-      <div class="split-word" data-delay="240"><span>mãos</span></div>
+      <div class="split-word" data-delay="0"><span>{{hero.h1.l1}}</span></div>
+      <div class="split-word" data-delay="120"><span><em>{{hero.h1.l2}}</em></span></div>
+      <div class="split-word" data-delay="240"><span>{{hero.h1.l3}}</span></div>
     </h1>
     <div class="hero-rule" id="heroRule"></div>
     <p class="hero-sub" id="heroSub">
-      Beleza natural. Mais autoconfiança.<br>
-      Manicure • Pedicure • Depilação em Berlim.
+      {{hero.sub}}
     </p>
     <div class="hero-actions" id="heroActions">
-      <a href="#booking" class="btn btn-red magnetic">Agendar agora</a>
-      <a href="#services" class="btn btn-outline magnetic">Conheça os serviços</a>
+      <a href="#booking" class="btn btn-red magnetic">{{hero.cta1}}</a>
+      <a href="#services" class="btn btn-outline magnetic">{{hero.cta2}}</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -1266,12 +1309,12 @@ button { font: inherit; }
     </svg>
     <div class="hero-visual-inner">
       <div class="hero-img-top">
-        <div class="hero-img-cell" style="background:url('assets/portrait.jpeg') center 22%/cover"></div>
-        <div class="hero-img-cell" style="background:url('assets/service_2.jpeg') center 18%/cover"></div>
+        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/portrait.jpeg') center 22%/cover"></div>
+        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_2.jpeg') center 18%/cover"></div>
       </div>
       <div class="hero-img-bottom">
-        <div class="hero-img-cell" style="background:url('assets/service_1.jpeg') center 32%/cover"></div>
-        <div class="hero-img-cell" style="background:url('assets/service_3.jpeg') center 18%/cover"></div>
+        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_1.jpeg') center 32%/cover"></div>
+        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_3.jpeg') center 18%/cover"></div>
       </div>
     </div>
   </div>
@@ -1294,47 +1337,46 @@ button { font: inherit; }
   <div class="container">
     <div class="gallery-header">
       <div>
-        <div class="eyebrow slide-up" style="margin-bottom:16px">Impressões</div>
+        <div class="eyebrow slide-up" style="margin-bottom:16px">{{gallery.eyebrow}}</div>
         <h2 class="gallery-title slide-up d1">
-          O<br><em>Studio</em>
+          {{gallery.title}}
         </h2>
       </div>
       <p class="gallery-desc slide-up d2">
-        Um lugar pensado para você — tranquilo, cuidado, acolhedor.
-        Cada tratamento em uma atmosfera que respira bem-estar.
+        {{gallery.desc}}
       </p>
     </div>
     <div class="gallery-mosaic">
-      <div class="gitem" data-label="Recepção & Studio" onclick="openLB('Recepção &amp; Studio', 'assets/saloon_1.png')">
+      <div class="gitem" onclick="openLB('{{gallery.g1}}', '{{page.assets}}assets/saloon_1.png')">
         <div class="gitem-parallax">
-          <div class="gitem-bg" style="background:url('assets/saloon_1.png') center 30%/cover"></div>
+          <div class="gitem-bg" style="background:url('{{page.assets}}assets/saloon_1.png') center 30%/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Recepção &amp; Studio</span>
+        <span class="gitem-label">{{gallery.g1}}</span>
       </div>
-      <div class="gitem" data-label="Sala de tratamento" onclick="openLB('Sala de tratamento', 'assets/saloon_3.png')">
+      <div class="gitem" onclick="openLB('{{gallery.g2}}', '{{page.assets}}assets/saloon_3.png')">
         <div class="gitem-parallax">
-          <div class="gitem-bg" style="background:url('assets/saloon_3.png') center 35%/cover"></div>
+          <div class="gitem-bg" style="background:url('{{page.assets}}assets/saloon_3.png') center 35%/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Sala de tratamento</span>
+        <span class="gitem-label">{{gallery.g2}}</span>
       </div>
-      <div class="gitem" data-label="Estação de manicure" onclick="openLB('Estação de manicure', 'assets/saloon_2.png')">
+      <div class="gitem" onclick="openLB('{{gallery.g3}}', '{{page.assets}}assets/saloon_2.png')">
         <div class="gitem-parallax">
-          <div class="gitem-bg" style="background:url('assets/saloon_2.png') center/cover"></div>
+          <div class="gitem-bg" style="background:url('{{page.assets}}assets/saloon_2.png') center/cover"></div>
         </div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Estação de manicure</span>
+        <span class="gitem-label">{{gallery.g3}}</span>
       </div>
-      <div class="gitem" data-label="Pedicure" onclick="openLB('Pedicure', 'assets/saloon_4.png')">
-        <div class="gitem-parallax"><div class="gitem-bg" style="background:url('assets/saloon_4.png') center/cover"></div></div>
+      <div class="gitem" onclick="openLB('{{gallery.g4}}', '{{page.assets}}assets/saloon_4.png')">
+        <div class="gitem-parallax"><div class="gitem-bg" style="background:url('{{page.assets}}assets/saloon_4.png') center/cover"></div></div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Pedicure</span>
+        <span class="gitem-label">{{gallery.g4}}</span>
       </div>
-      <div class="gitem" data-label="Cabine de depilação" onclick="openLB('Cabine de depilação', 'assets/saloon_5.png')">
-        <div class="gitem-parallax"><div class="gitem-bg" style="background:url('assets/saloon_5.png') center/cover"></div></div>
+      <div class="gitem" onclick="openLB('{{gallery.g5}}', '{{page.assets}}assets/saloon_5.png')">
+        <div class="gitem-parallax"><div class="gitem-bg" style="background:url('{{page.assets}}assets/saloon_5.png') center/cover"></div></div>
         <div class="gitem-overlay"></div>
-        <span class="gitem-label">Cabine de depilação</span>
+        <span class="gitem-label">{{gallery.g5}}</span>
       </div>
     </div>
     <div class="dots-pager" id="galleryDots"></div>
@@ -1343,7 +1385,7 @@ button { font: inherit; }
 
 <!-- Lightbox -->
 <div class="lb" id="lb" onclick="if(event.target===this)closeLB()" aria-modal="true">
-  <button class="lb-close" onclick="closeLB()">Fechar ✕</button>
+  <button class="lb-close" onclick="closeLB()">{{lb.close}}</button>
   <div class="lb-content">
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--green)" id="lb-title"></h3>
     <img class="lb-img" id="lb-img" src="" alt="">
@@ -1355,10 +1397,10 @@ button { font: inherit; }
   <div class="container">
     <div class="services-layout">
       <div class="services-sidebar slide-up">
-        <div class="eyebrow" style="margin-bottom:16px">Lista de preços</div>
-        <h2 class="services-sidebar-title">Nossos<br><em>Serviços</em></h2>
-        <nav class="service-nav" id="serviceNav" aria-label="Categorias de serviço"></nav>
-        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">Tire suas dúvidas por WhatsApp</a>
+        <div class="eyebrow" style="margin-bottom:16px">{{services.eyebrow}}</div>
+        <h2 class="services-sidebar-title">{{services.title}}</h2>
+        <nav class="service-nav" id="serviceNav" aria-label="{{services.navLabel}}"></nav>
+        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">{{services.whatsapp}}</a>
       </div>
 
       <div id="servicePanels"></div>
@@ -1377,8 +1419,8 @@ button { font: inherit; }
   <div class="container">
     <div class="guide-inner">
       <div>
-        <div class="eyebrow guide-left-eyebrow slide-up">Depilação</div>
-        <h2 class="guide-title slide-up d1">O<br><em>Guia</em><br>de Depilação</h2>
+        <div class="eyebrow guide-left-eyebrow slide-up">{{guide.eyebrow}}</div>
+        <h2 class="guide-title slide-up d1">{{guide.title}}</h2>
 
         <div class="guide-steps-wrap">
           <div class="gstep-rail"><div class="gstep-rail-fill" id="gstepFill"></div></div>
@@ -1386,36 +1428,36 @@ button { font: inherit; }
             <div class="gstep slide-up d1">
               <span class="gstep-num">01</span>
               <div class="gstep-body">
-                <div class="gstep-title">Conversa de confiança e avaliação</div>
-                <p class="gstep-desc">Atendimento individual, verificação da sensibilidade da pele e conversa sobre seus desejos.</p>
+                <div class="gstep-title">{{guide.step1.title}}</div>
+                <p class="gstep-desc">{{guide.step1.desc}}</p>
               </div>
             </div>
             <div class="gstep slide-up d2">
               <span class="gstep-num">02</span>
               <div class="gstep-body">
-                <div class="gstep-title">Preparação suave da pele</div>
-                <p class="gstep-desc">Limpeza higiênica seguida de pó ou primer para uma aderência ideal da cera.</p>
+                <div class="gstep-title">{{guide.step2.title}}</div>
+                <p class="gstep-desc">{{guide.step2.desc}}</p>
               </div>
             </div>
             <div class="gstep slide-up d3">
               <span class="gstep-num">03</span>
               <div class="gstep-body">
-                <div class="gstep-title">Aplicação precisa da cera</div>
-                <p class="gstep-desc">Cera quente para zonas íntimas sensíveis, cera morna para áreas maiores — sempre adequada à região do corpo.</p>
+                <div class="gstep-title">{{guide.step3.title}}</div>
+                <p class="gstep-desc">{{guide.step3.desc}}</p>
               </div>
             </div>
             <div class="gstep slide-up d4">
               <span class="gstep-num">04</span>
               <div class="gstep-body">
-                <div class="gstep-title">Remoção suave &amp; rápida</div>
-                <p class="gstep-desc">Técnica profissional para o mínimo de desconforto — experiência e sensibilidade em primeiro lugar.</p>
+                <div class="gstep-title">{{guide.step4.title}}</div>
+                <p class="gstep-desc">{{guide.step4.desc}}</p>
               </div>
             </div>
             <div class="gstep slide-up" style="transition-delay:0.5s">
               <span class="gstep-num">05</span>
               <div class="gstep-body">
-                <div class="gstep-title">Cuidados calmantes pós-depilação</div>
-                <p class="gstep-desc">Óleos e géis calmantes para prevenir vermelhidão — para uma sensação agradável logo após o tratamento.</p>
+                <div class="gstep-title">{{guide.step5.title}}</div>
+                <p class="gstep-desc">{{guide.step5.desc}}</p>
               </div>
             </div>
           </div>
@@ -1423,69 +1465,69 @@ button { font: inherit; }
       </div>
 
       <div>
-        <div class="eyebrow slide-up" style="color:rgba(197,160,89,0.8);margin-bottom:20px">Por que depilar com cera?</div>
+        <div class="eyebrow slide-up" style="color:rgba(197,160,89,0.8);margin-bottom:20px">{{guide.whyEyebrow}}</div>
         <div class="why-carousel" id="whyCarousel">
           <div class="why-row slide-up d1">
             <span class="why-idx">i.</span>
-            <div><div class="why-body-title">Lisura imediata desde a raiz</div><p class="why-body-desc">A cera quente envolve cada pelo e o remove completamente — para uma sensação de pele sedosa e lisa desde já.</p></div>
+            <div><div class="why-body-title">{{guide.why1.title}}</div><p class="why-body-desc">{{guide.why1.desc}}</p></div>
           </div>
           <div class="why-row slide-up d2">
             <span class="why-idx">ii.</span>
-            <div><div class="why-body-title">3–5 semanas de pele lisa</div><p class="why-body-desc">Diferente do barbear diário, a pele fica lisa e cuidada por semanas após a depilação com cera.</p></div>
+            <div><div class="why-body-title">{{guide.why2.title}}</div><p class="why-body-desc">{{guide.why2.desc}}</p></div>
           </div>
           <div class="why-row slide-up d3">
             <span class="why-idx">iii.</span>
-            <div><div class="why-body-title">Pelos mais finos com o tempo</div><p class="why-body-desc">A cada tratamento, os pelos voltam a crescer mais suaves e finos — um efeito visível a longo prazo.</p></div>
+            <div><div class="why-body-title">{{guide.why3.title}}</div><p class="why-body-desc">{{guide.why3.desc}}</p></div>
           </div>
           <div class="why-row slide-up d4">
             <span class="why-idx">iv.</span>
-            <div><div class="why-body-title">Sem cortes, sem irritação do barbear</div><p class="why-body-desc">Mais suave para a pele — sem lesões, sem pelos encravados causados por um barbear malfeito.</p></div>
+            <div><div class="why-body-title">{{guide.why4.title}}</div><p class="why-body-desc">{{guide.why4.desc}}</p></div>
           </div>
         </div>
         <div class="dots-pager" id="whyDots"></div>
 
-        <h3 class="guide-styles-title slide-up">Estilos de<br>Depilação <em>Íntima</em></h3>
+        <h3 class="guide-styles-title slide-up">{{guide.stylesTitle}}</h3>
         <div class="style-pills" id="stylePills"></div>
         <div class="style-detail" id="styleDetail"></div>
 
         <div class="acc-list">
           <div class="acc-item slide-up" id="acc1">
             <button class="acc-trigger" onclick="toggleAcc('acc1')">
-              Antes da depilação <span class="acc-icon">+</span>
+              {{guide.before.title}} <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <div class="acc-content">
-                <p>Para que a sua experiência seja ainda mais confortável e o resultado mais delicado e uniforme, alguns cuidados antes do procedimento são essenciais.</p>
-                <p>No dia da depilação, mantenha a pele limpa e evite o uso de cremes, óleos ou loções na região a ser tratada, pois esses produtos podem interferir na aderência da cera.</p>
-                <p>Para uma remoção mais eficaz, recomendamos um intervalo de aproximadamente 3 a 4 semanas de crescimento dos pelos antes da sessão.</p>
-                <p>Evite também exposição ao sol ou ao solário antes do procedimento, especialmente se a pele estiver sensibilizada, irritada ou recentemente bronzeada.</p>
-                <p>Informe previamente sobre doenças de pele ou medicamentos em uso.</p>
+                <p>{{guide.before.p1}}</p>
+                <p>{{guide.before.p2}}</p>
+                <p>{{guide.before.p3}}</p>
+                <p>{{guide.before.p4}}</p>
+                <p>{{guide.before.p5}}</p>
               </div>
             </div>
           </div>
           <div class="acc-item slide-up d1" id="acc2">
             <button class="acc-trigger" onclick="toggleAcc('acc2')">
-              Depois da depilação <span class="acc-icon">+</span>
+              {{guide.after.title}} <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <div class="acc-content">
-                <p>Após a depilação, a pele merece um cuidado especial. Nas primeiras 24 horas, evite exposição ao sol e ao solário, sauna, banhos muito quentes e atividades que provoquem transpiração intensa.</p>
-                <p>Nesse período, também recomendamos evitar perfumes, desodorantes, produtos com álcool e cosméticos perfumados diretamente sobre a região depilada.</p>
-                <p>Prefira roupas leves e confortáveis e hidrate a pele com produtos suaves, delicados e adequados para peles sensíveis.</p>
-                <p>A esfoliação deve ser evitada nas primeiras 48 horas. Após esse período, uma esfoliação delicada pode ser incorporada à sua rotina de cuidados, auxiliando na prevenção de pelos encravados e mantendo a pele mais uniforme.</p>
-                <p>Cada detalhe faz parte do cuidado. Seguindo essas recomendações, você contribui para preservar a suavidade, o conforto e a aparência saudável da pele, prolongando a sensação de bem-estar e valorizando ainda mais o resultado da depilação.</p>
+                <p>{{guide.after.p1}}</p>
+                <p>{{guide.after.p2}}</p>
+                <p>{{guide.after.p3}}</p>
+                <p>{{guide.after.p4}}</p>
+                <p>{{guide.after.p5}}</p>
               </div>
             </div>
           </div>
           <div class="acc-item slide-up d2" id="acc3">
             <button class="acc-trigger" onclick="toggleAcc('acc3')">
-              Perguntas frequentes <span class="acc-icon">+</span>
+              {{guide.faq.title}} <span class="acc-icon">+</span>
             </button>
             <div class="acc-body">
               <ul class="acc-content">
-                <li><strong style="color:rgba(255,255,255,0.8)">Depilar com cera dói?</strong> Um leve desconforto é normal, mas diminui a cada tratamento.</li>
-                <li><strong style="color:rgba(255,255,255,0.8)">Com que frequência?</strong> Recomendado a cada 3–5 semanas para resultados ideais.</li>
-                <li><strong style="color:rgba(255,255,255,0.8)">Posso ir menstruada?</strong> Sim, é possível — mas a pele fica mais sensível. Por favor, avise com antecedência.</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">{{guide.faq1.q}}</strong> {{guide.faq1.a}}</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">{{guide.faq2.q}}</strong> {{guide.faq2.a}}</li>
+                <li><strong style="color:rgba(255,255,255,0.8)">{{guide.faq3.q}}</strong> {{guide.faq3.a}}</li>
               </ul>
             </div>
           </div>
@@ -1500,24 +1542,23 @@ button { font: inherit; }
   <div class="container">
     <div class="booking-grid">
       <div>
-        <div class="eyebrow booking-eyebrow slide-up">Agende seu horário</div>
-        <h2 class="booking-title slide-up d1">Agende<br>seu<br><em>horário desejado</em></h2>
+        <div class="eyebrow booking-eyebrow slide-up">{{booking.eyebrow}}</div>
+        <h2 class="booking-title slide-up d1">{{booking.title}}</h2>
         <p class="booking-body slide-up d2">
-          Escolha o tratamento desejado e agende seu horário diretamente em nossa agenda —
-          você recebe a confirmação por e-mail imediatamente.
+          {{booking.body}}
         </p>
         <div class="contact-list slide-up d3">
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">Endereço</div>
-              <div class="citem-value">Ahlbecker Straße 19, 10437 Berlim</div>
+              <div class="citem-label">{{contact.address}}</div>
+              <div class="citem-value">{{contact.addressLine}}</div>
             </div>
           </div>
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">WhatsApp &amp; Telefone</div>
+              <div class="citem-label">{{contact.whatsappPhone}}</div>
               <div class="citem-value"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
             </div>
           </div>
@@ -1531,8 +1572,8 @@ button { font: inherit; }
           <div class="citem">
             <div class="citem-line"></div>
             <div>
-              <div class="citem-label">Horário de atendimento</div>
-              <div class="citem-value">Agendamentos combinados · Seg – Sáb</div>
+              <div class="citem-label">{{contact.hoursLabel}}</div>
+              <div class="citem-value">{{contact.hours}}</div>
             </div>
           </div>
         </div>
@@ -1540,20 +1581,20 @@ button { font: inherit; }
 
       <div>
         <div class="form-card slide-up d2">
-          <p class="form-title">Solicitar horário</p>
-          <p class="wpanel-title">Escolha seu tratamento</p>
+          <p class="form-title">{{booking.formTitle}}</p>
+          <p class="wpanel-title">{{booking.choose}}</p>
           <div class="field">
-            <label for="serviceSelect">Tratamento</label>
+            <label for="serviceSelect">{{booking.treatment}}</label>
             <div class="select-wrap">
               <select id="serviceSelect"></select>
             </div>
           </div>
           <div class="wizard-actions">
-            <button type="button" class="btn btn-red" id="bookBtn" style="width:100%">Agendar horário</button>
+            <button type="button" class="btn btn-red" id="bookBtn" style="width:100%">{{cta.book}}</button>
           </div>
         </div>
 
-        <p class="booking-disclaimer slide-up d3"><strong>Informação importante sobre marcações:</strong> para garantir uma melhor organização da agenda, pedimos que os horários marcados sejam respeitados. Caso a cliente faça uma marcação e não compareça ao horário agendado, sem cancelamento prévio, uma nova marcação só poderá ser realizada mediante pagamento antecipado do serviço. Agradecemos a compreensão e o respeito pelo nosso tempo e pelo horário reservado especialmente para você.</p>
+        <p class="booking-disclaimer slide-up d3">{{booking.disclaimer}}</p>
       </div>
     </div>
   </div>
@@ -1564,19 +1605,19 @@ button { font: inherit; }
   <div class="container">
     <div class="location-grid">
       <div class="slide-up">
-        <div class="eyebrow" style="margin-bottom:16px">Como chegar</div>
-        <h2 class="location-title">Visite-<br><em>nos</em></h2>
+        <div class="eyebrow" style="margin-bottom:16px">{{location.eyebrow}}</div>
+        <h2 class="location-title">{{location.title}}</h2>
         <div class="linfo-list">
           <div class="linfo-row">
-            <div class="linfo-key">Endereço</div>
-            <div class="linfo-val">Ahlbecker Straße 19<br>10437 Berlim · Prenzlauer Berg</div>
+            <div class="linfo-key">{{contact.address}}</div>
+            <div class="linfo-val">{{location.address}}</div>
           </div>
           <div class="linfo-row">
-            <div class="linfo-key">Metrô</div>
-            <div class="linfo-val">Eberswalder Straße (U2) · 5 min.</div>
+            <div class="linfo-key">{{location.transitLabel}}</div>
+            <div class="linfo-val">{{location.transit}}</div>
           </div>
           <div class="linfo-row">
-            <div class="linfo-key">Telefone</div>
+            <div class="linfo-key">{{contact.phone}}</div>
             <div class="linfo-val"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
           </div>
           <div class="linfo-row">
@@ -1584,14 +1625,14 @@ button { font: inherit; }
             <div class="linfo-val"><a href="https://instagram.com/daracosta_beauty" target="_blank" rel="noopener">@daracosta_beauty</a></div>
           </div>
         </div>
-        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark">Escrever no WhatsApp</a>
+        <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark">{{location.whatsapp}}</a>
       </div>
       <div class="slide-up d2">
         <div class="map-wrap">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0!2d13.4226!3d52.5441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e4e76d7db53%3A0x1!2sAhlbecker+Stra%C3%9Fe+19%2C+10437+Berlin!5e0!3m2!1sde!2sde!4v1699000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0!2d13.4226!3d52.5441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e4e76d7db53%3A0x1!2sAhlbecker+Stra%C3%9Fe+19%2C+10437+Berlin!5e0!3m2!1s{{location.mapLang}}!2sde!4v1699000000000"
             allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="Dara Costa Berlim">
+            title="{{location.mapTitle}}">
           </iframe>
           <div class="map-pin">
             <svg width="30" height="40" viewBox="0 0 30 40" fill="none"><path d="M15 0C6.7 0 0 6.7 0 15c0 10 15 25 15 25s15-15 15-25C30 6.7 23.3 0 15 0Z" fill="#8B0000"/><circle cx="15" cy="15" r="6" fill="#FDFBF7"/></svg>
@@ -1610,45 +1651,49 @@ button { font: inherit; }
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo footer-logo" aria-label="Dara Costa">
-          <img src="assets/logo-mark.png" alt="" class="logo-mark">
-          <span class="logo-name footer-logo-name">Dara Costa<svg class="logo-flag" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/><path d="M7.2 8.2 Q10 5.5 12.8 8.2" stroke="white" stroke-width="0.6" fill="none"/></svg></span>
+          <img src="{{page.assets}}assets/logo-mark.png" alt="" class="logo-mark">
+          <span class="logo-name footer-logo-name">Dara Costa</span>
         </a>
-        <div class="footer-tagline script">Sua beleza é minha paixão</div>
+        <div class="footer-tagline script">{{footer.tagline}}</div>
       </div>
       <div>
-        <div class="footer-col-title">Navegação</div>
+        <div class="footer-col-title">{{footer.nav}}</div>
         <div class="footer-links">
-          <a href="#services">Serviços</a>
-          <a href="#guide">Guia de Depilação</a>
-          <a href="#booking">Agendar horário</a>
-          <a href="#location">Contato &amp; Localização</a>
+          <a href="#services">{{nav.services}}</a>
+          <a href="#guide">{{nav.guide}}</a>
+          <a href="#booking">{{cta.book}}</a>
+          <a href="#location">{{footer.contactLocation}}</a>
         </div>
       </div>
       <div>
-        <div class="footer-col-title">Contato</div>
+        <div class="footer-col-title">{{nav.contact}}</div>
         <div class="footer-links">
           <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://instagram.com/daracosta_beauty" target="_blank" rel="noopener">@daracosta_beauty</a>
           <a href="tel:+4917660942863">+49 017660942863</a>
-          <span style="color:rgba(255,255,255,0.3);font-size:13px">Ahlbecker Str. 19, Berlim</span>
+          <span style="color:rgba(255,255,255,0.3);font-size:13px">{{footer.address}}</span>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Dara Costa · Todos os direitos reservados</span>
+      <span class="footer-copy">{{footer.copy}}</span>
+      <div class="lang-switch" role="group" aria-label="{{a11y.language}}"><a href="{{page.root}}" hreflang="de" lang="de"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.67" fill="#000"/><rect y="4.67" width="20" height="4.67" fill="#DD0000"/><rect y="9.33" width="20" height="4.67" fill="#FFCE00"/></svg>DE</a><span aria-hidden="true">·</span><a href="{{page.root}}pt/" hreflang="pt-BR" lang="pt-BR"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT</a></div>
       <span class="footer-flag">
-        <svg width="20" height="14" viewBox="0 0 20 14" aria-label="Brasil">
+        <svg width="20" height="14" viewBox="0 0 20 14" aria-label="{{footer.flagLabel}}">
           <rect width="20" height="14" fill="#009C3B"/>
           <polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/>
           <circle cx="10" cy="7" r="3.2" fill="#002776"/>
         </svg>
-        Berlim · Brasil
+        {{footer.flagText}}
       </span>
     </div>
   </div>
 </footer>
 
 <script>
+/* ── Translated UI strings (rendered from i18n/<lang>.json "js.*" keys) ── */
+const T = {{js}};
+
 /* ── Scroll progress ── */
 const scrollBar = document.getElementById('scroll-bar');
 window.addEventListener('scroll', () => {
@@ -1676,6 +1721,16 @@ document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', 
   mobnav.classList.remove('open');
   document.body.style.overflow = '';
 }));
+
+/* ── Language switch (keeps the section hash, remembers the choice) ── */
+document.querySelectorAll('.lang-switch a').forEach(a => {
+  if (a.hreflang === document.documentElement.lang) a.setAttribute('aria-current', 'true');
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    try { localStorage.setItem('lang', a.hreflang); } catch (err) {}
+    location.href = a.href + location.hash;
+  });
+});
 
 /* ── Hero text animation on load ── */
 window.addEventListener('DOMContentLoaded', () => {
@@ -1767,11 +1822,7 @@ document.querySelectorAll('.magnetic').forEach(btn => {
 });
 
 /* ── Ticker ── */
-const TICKER_ITEMS = [
-  'Beleza natural', 'Manicure', 'Pedicure', 'Depilação Brasileira',
-  'Cuidado &amp; Bem-estar', 'Atendimento personalizado', 'Berlim · Prenzlauer Berg',
-  'Limpeza &amp; Higiene', 'Sua beleza é minha paixão',
-];
+const TICKER_ITEMS = T.ticker;
 function buildTicker() {
   const track = document.getElementById('tickerTrack');
   if (!track) return;
@@ -1831,7 +1882,7 @@ async function onBook({ itemId, variantId }, btn) {
   } catch (err) {
     console.error('Could not start booking', err);
     if (tab) tab.close();
-    alert('Não foi possível iniciar o agendamento. Tente novamente ou fale conosco por WhatsApp.');
+    alert(T.bookError);
   } finally {
     if (btn) btn.disabled = false;
   }
@@ -1862,7 +1913,7 @@ function renderServices(categories) {
               <div><div class="nail-name">${esc(i.name)}</div>${i.description ? `<div class="nail-sub">${esc(i.description)}</div>` : ''}</div>
               <div class="nail-meta">
                 ${i.duration ? `<span class="nail-duration">${i.duration} min</span>` : ''}
-                <button type="button" class="btn-book-mini" data-item-id="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">Agendar</button>
+                <button type="button" class="btn-book-mini" data-item-id="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">${T.book}</button>
               </div>
             </div>`).join('')}
           </div>
@@ -1902,15 +1953,15 @@ function toggleAcc(id) {
 
 /* ── Intimate style selector ── */
 const STYLES = [
-  { key: 'hollywood', name: 'Hollywood', desc: 'Remoção completa dos pelos em toda a área íntima — para um resultado impecavelmente liso.',
+  { key: 'hollywood',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M20 4 C28 16 32 22 32 28 C32 34.5 26.5 38 20 38 C13.5 38 8 34.5 8 28 C8 22 12 16 20 4Z" fill="#D4AF37"/></svg>' },
-  { key: 'strip', name: 'Faixa', desc: 'Uma faixa elegante e estreita na parte frontal — discreta e atemporal.',
+  { key: 'strip',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><rect x="17" y="5" width="6" height="30" rx="3" fill="#D4AF37"/></svg>' },
-  { key: 'triangle', name: 'Triângulo', desc: 'O clássico triângulo geométrico — natural e definido.',
+  { key: 'triangle',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M20 7 L32 33 L8 33 Z" stroke="#D4AF37" stroke-width="2.5" stroke-linejoin="round"/></svg>' },
-  { key: 'bikini', name: 'Biquíni / Tanga', desc: 'Depilação precisa ao longo da linha do biquíni — ideal e discreta para o dia a dia.',
+  { key: 'bikini',
     icon: '<svg width="26" height="26" viewBox="0 0 40 40" fill="none"><path d="M10 26 C10 15 30 15 30 26 C30 19 10 19 10 26Z" fill="#D4AF37"/></svg>' },
-];
+].map(s => ({ ...s, ...T.styles[s.key] }));
 let styleActive = 'hollywood';
 function renderStylePills() {
   const wrap = document.getElementById('stylePills');
@@ -2017,7 +2068,7 @@ document.getElementById('bookBtn').addEventListener('click', e => {
   onBook({ itemId: opt.value, variantId: opt.dataset.variantId }, e.currentTarget);
 });
 
-fetch('assets/services.json')
+fetch('{{page.assets}}assets/services.json')
   .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
   .then(categories => {
     renderServices(categories);
@@ -2026,7 +2077,7 @@ fetch('assets/services.json')
   .catch(err => {
     console.error('Could not load services', err);
     document.getElementById('servicePanels').innerHTML =
-      '<p class="nail-sub">Lista de serviços indisponível no momento — fale conosco por <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>.</p>';
+      `<p class="nail-sub">${T.servicesUnavailable} <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>.</p>`;
     document.getElementById('serviceSelect').disabled = true;
     document.getElementById('bookBtn').disabled = true;
   });

@@ -33,6 +33,9 @@ jobs:
           echo "Using $CSV"
           python3 .github/scripts/csv_to_json.py "$CSV" public/live/assets/services.json
 
+      - name: Render German (/) and Portuguese (/pt/) pages
+        run: python3 .github/scripts/render_i18n.py src/index.template.html i18n public/live
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
