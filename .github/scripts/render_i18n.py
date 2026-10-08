@@ -12,7 +12,7 @@ import os
 import re
 import sys
 
-SITE_URL = 'https://oliverstr.github.io/dara-costa/'
+SITE_URL = 'https://daracosta.de/'
 # (html lang, dictionary file, output sub-path). The first entry is the default.
 LOCALES = [
     ('de', 'de.json', ''),
