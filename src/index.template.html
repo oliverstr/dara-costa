@@ -1416,6 +1416,8 @@ button { font: inherit; }
   .styles-grid { grid-template-columns: 1fr 1fr; }
   .form-card { padding: 28px 22px; }
   .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  /* keep the footer's last line clear of the floating quickbar (~70px tall + 14px offset) */
+  .footer { padding-bottom: calc(132px + env(safe-area-inset-bottom, 0px)); }
   body { padding-bottom: 0; }
 }
 </style>
