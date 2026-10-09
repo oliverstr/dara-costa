@@ -102,7 +102,7 @@
   "footer.tagline": "Deine Schönheit ist meine Leidenschaft",
   "footer.nav": "Navigation",
   "footer.address": "Ahlbecker Str. 19, Berlin",
-  "footer.copy": "© 2025 Dara Costa · Alle Rechte vorbehalten",
+  "footer.copy": "Dara Costa · Alle Rechte vorbehalten",
   "footer.flagLabel": "Brasilien",
   "footer.flagText": "Berlin · Brasilien",
   "a11y.language": "Sprache",
@@ -118,6 +118,5 @@
     "bikini": { "name": "Bikini / String", "desc": "Präzises Waxing entlang der Bikinilinie – ideal und unauffällig für den Alltag." }
   },
   "js.book": "Buchen",
-  "js.bookError": "Die Buchung konnte nicht gestartet werden. Bitte versuch es noch einmal oder schreib uns auf WhatsApp.",
-  "js.servicesUnavailable": "Die Leistungsliste ist gerade nicht verfügbar – schreib uns gern auf"
+  "js.bookError": "Die Buchung konnte nicht gestartet werden. Bitte versuch es noch einmal oder schreib uns auf WhatsApp."
 }

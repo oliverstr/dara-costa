@@ -102,7 +102,7 @@
   "footer.tagline": "Sua beleza é minha paixão",
   "footer.nav": "Navegação",
   "footer.address": "Ahlbecker Str. 19, Berlim",
-  "footer.copy": "© 2025 Dara Costa · Todos os direitos reservados",
+  "footer.copy": "Dara Costa · Todos os direitos reservados",
   "footer.flagLabel": "Brasil",
   "footer.flagText": "Berlim · Brasil",
   "a11y.language": "Idioma",
@@ -136,6 +136,5 @@
     }
   },
   "js.book": "Agendar",
-  "js.bookError": "Não foi possível iniciar o agendamento. Tente novamente ou fale conosco por WhatsApp.",
-  "js.servicesUnavailable": "Lista de serviços indisponível no momento — fale conosco por"
+  "js.bookError": "Não foi possível iniciar o agendamento. Tente novamente ou fale conosco por WhatsApp."
 }

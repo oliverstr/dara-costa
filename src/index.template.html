@@ -34,7 +34,7 @@
   "inLanguage": "{{page.lang}}",
   "image": "{{site.url}}assets/{{meta.ogImage}}",
   "logo": "{{site.url}}assets/apple-touch-icon.png",
-  "telephone": "+4917660942863",
+  "telephone": "+49 176 60942863",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Ahlbecker Straße 19",
@@ -54,9 +54,83 @@ try {
   if (document.documentElement.lang === 'de' && localStorage.getItem('lang') === 'pt-BR') location.replace('pt/' + location.hash);
 } catch (e) {}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&family=Playball&display=swap" rel="stylesheet">
+<link rel="preload" href="{{page.assets}}assets/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{page.assets}}assets/fonts/inter-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ── FONTS (self-hosted from Google Fonts, SIL Open Font License) ── */
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 400;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/cormorant-garamond-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 400;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/cormorant-garamond-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/cormorant-garamond-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/cormorant-garamond-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/inter-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/inter-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Playball';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/playball-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Playball';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url({{page.assets}}assets/fonts/playball-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
 <style>
 /* ── TOKENS ── */
 :root {
@@ -344,7 +418,7 @@ button { font: inherit; }
 .nav .lang-switch { transition: opacity 0.3s; }
 .nav:has(.hamburger.open) .lang-switch { opacity: 0; pointer-events: none; }
 .mobile-nav .lang-switch { margin-top: 28px; font-size: 13px; }
-.mobile-nav .lang-switch a, .footer .lang-switch a { color: rgba(255,255,255,0.45); }
+.mobile-nav .lang-switch a, .footer .lang-switch a { color: rgba(255,255,255,0.6); }
 .mobile-nav .lang-switch a:hover, .footer .lang-switch a:hover { color: var(--white); }
 .mobile-nav .lang-switch a[aria-current], .footer .lang-switch a[aria-current] { color: var(--gold); }
 
@@ -775,6 +849,9 @@ button { font: inherit; }
   .gender-btn[aria-pressed="true"] .gender-icon { animation: none; }
 }
 
+/* One set per gender; the hidden one drops out, the visible one lays out as if unwrapped. */
+.service-set { display: contents; }
+.service-set[hidden] { display: none; }
 .service-panel { display: none; }
 .service-panel.active { display: block; }
 
@@ -1037,7 +1114,7 @@ button { font: inherit; }
   flex-shrink: 0;
 }
 .style-detail-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: white; margin-bottom: 6px; }
-.style-detail-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+.style-detail-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
 
 /* Accordion */
 .acc-list { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; }
@@ -1111,7 +1188,6 @@ button { font: inherit; }
   margin-top: 16px;
   font-size: 11.5px;
   color: var(--muted);
-  opacity: 0.75;
   line-height: 1.6;
 }
 .booking-disclaimer strong { font-weight: 600; color: var(--muted); }
@@ -1251,7 +1327,7 @@ button { font: inherit; }
 .footer-logo-name { color: var(--white); }
 .footer-tagline {
   font-size: 1.35rem;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.6);
 }
 .footer-col-title {
   font-size: 10px;
@@ -1275,13 +1351,13 @@ button { font: inherit; }
   flex-wrap: wrap;
   gap: 12px;
 }
-.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
 .footer-flag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   font-size: 12px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.6);
 }
 
 /* ═══════════════════════════
@@ -1342,7 +1418,7 @@ button { font: inherit; }
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Dara Costa">
-        <img src="{{page.assets}}assets/logo-mark.png" alt="" class="logo-mark">
+        <img src="{{page.assets}}assets/logo-mark.png" width="63" height="40" alt="" class="logo-mark">
         <span class="logo-name">Dara Costa</span>
       </a>
       <ul class="nav-links">
@@ -1507,10 +1583,10 @@ button { font: inherit; }
 -->
 
 <!-- Lightbox -->
-<div class="lb" id="lb" onclick="if(event.target===this)closeLB()" aria-modal="true">
+<div class="lb" id="lb" onclick="if(event.target===this)closeLB()" role="dialog" aria-modal="true" aria-labelledby="lb-title" inert>
   <button class="lb-close" onclick="closeLB()">{{lb.close}}</button>
   <div class="lb-content">
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--green)" id="lb-title"></h3>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--green)" id="lb-title"></p>
     <img class="lb-img" id="lb-img" src="" alt="">
   </div>
 </div>
@@ -1527,11 +1603,15 @@ button { font: inherit; }
           <button type="button" class="gender-btn" data-gender="ela" aria-pressed="true"><svg class="gender-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M12 14.5V22M8.5 18.5h7"/></svg>{{services.ela}}</button>
           <button type="button" class="gender-btn" data-gender="ele" aria-pressed="false"><svg class="gender-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="14" r="5.5"/><path d="M14 10l7-7M15 3h6v6"/></svg>{{services.ele}}</button>
         </div>
-        <nav class="service-nav" id="serviceNav" aria-label="{{services.navLabel}}"></nav>
+        <nav class="service-nav" id="serviceNav" aria-label="{{services.navLabel}}">
+        {{page.serviceNav}}
+        </nav>
         <a href="https://wa.me/4917660942863" target="_blank" rel="noopener" class="btn btn-dark" style="width:100%;justify-content:center">{{services.whatsapp}}</a>
       </div>
 
-      <div id="servicePanels"></div>
+      <div id="servicePanels">
+      {{page.servicePanels}}
+      </div>
     </div>
   </div>
 </section>
@@ -1687,7 +1767,7 @@ button { font: inherit; }
             <div class="citem-line"></div>
             <div>
               <div class="citem-label">{{contact.whatsappPhone}}</div>
-              <div class="citem-value"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
+              <div class="citem-value"><a href="tel:+4917660942863">+49 176 60942863</a></div>
             </div>
           </div>
           <div class="citem">
@@ -1746,7 +1826,7 @@ button { font: inherit; }
           </div>
           <div class="linfo-row">
             <div class="linfo-key">{{contact.phone}}</div>
-            <div class="linfo-val"><a href="tel:+4917660942863">(+49) 017660942863</a></div>
+            <div class="linfo-val"><a href="tel:+4917660942863">+49 176 60942863</a></div>
           </div>
           <div class="linfo-row">
             <div class="linfo-key">Instagram</div>
@@ -1779,7 +1859,7 @@ button { font: inherit; }
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo footer-logo" aria-label="Dara Costa">
-          <img src="{{page.assets}}assets/logo-mark.png" alt="" class="logo-mark">
+          <img src="{{page.assets}}assets/logo-mark.png" width="63" height="40" alt="" class="logo-mark">
           <span class="logo-name footer-logo-name">Dara Costa</span>
         </a>
         <div class="footer-tagline script">{{footer.tagline}}</div>
@@ -1798,13 +1878,13 @@ button { font: inherit; }
         <div class="footer-links">
           <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://instagram.com/daracosta_beauty" target="_blank" rel="noopener">@daracosta_beauty</a>
-          <a href="tel:+4917660942863">+49 017660942863</a>
-          <span style="color:rgba(255,255,255,0.3);font-size:13px">{{footer.address}}</span>
+          <a href="tel:+4917660942863">+49 176 60942863</a>
+          <span style="color:rgba(255,255,255,0.6);font-size:13px">{{footer.address}}</span>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">{{footer.copy}}</span>
+      <span class="footer-copy">© {{site.year}} {{footer.copy}}</span>
       <div class="lang-switch" role="group" aria-label="{{a11y.language}}"><a href="{{page.root}}" hreflang="de" lang="de"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.67" fill="#000"/><rect y="4.67" width="20" height="4.67" fill="#DD0000"/><rect y="9.33" width="20" height="4.67" fill="#FFCE00"/></svg>DE</a><span aria-hidden="true">·</span><a href="{{page.root}}pt/" hreflang="pt-BR" lang="pt-BR"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT</a></div>
       <span class="footer-flag">
         <svg width="20" height="14" viewBox="0 0 20 14" aria-label="{{footer.flagLabel}}">
@@ -1965,11 +2045,12 @@ buildTicker();
 document.getElementById('serviceNav').addEventListener('click', e => {
   const btn = e.target.closest('.snav-btn');
   if (!btn) return;
-  document.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
+  btn.parentElement.querySelectorAll('.snav-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const key = btn.dataset.panel;
-  document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + key)?.classList.add('active');
+  const panel = document.getElementById('panel-' + key);
+  panel.parentElement.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+  panel.classList.add('active');
   document.querySelectorAll('#panel-' + key + ' .slide-up').forEach(el => {
     el.classList.add('revealed');
   });
@@ -2021,34 +2102,10 @@ document.addEventListener('click', e => {
   onBook({ ...btn.dataset }, btn);
 });
 
-/* ── Services (generated from the SumUp export, see .github/scripts/csv_to_json.py) ── */
+/* ── Services: written into the page at build time from the SumUp export
+   (see .github/scripts/csv_to_json.py and render_i18n.py) ── */
 function esc(v) {
   return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
-}
-function renderServices(categories) {
-  document.getElementById('serviceNav').innerHTML = categories.map((c, i) => `
-    <button class="snav-btn${i === 0 ? ' active' : ''}" data-panel="${i}">
-      <span class="snav-num">${String(i + 1).padStart(2, '0')}</span> ${esc(c.name)}
-    </button>`).join('');
-  const panels = document.getElementById('servicePanels');
-  panels.innerHTML = categories.map((c, ci) => `
-    <div class="service-panel${ci === 0 ? ' active' : ''}" id="panel-${ci}">
-      <div class="wax-groups">${c.groups.map((g, gi) => `
-        <div class="wax-block slide-up" style="transition-delay:${Math.min(gi, 4) * 0.08}s">
-          ${g.name ? `<div class="wax-group-title">${esc(g.name)}</div>` : ''}
-          <div class="nail-list">${g.items.map((i, ii) => `
-            <div class="nail-item slide-up" style="transition-delay:${Math.min(ii, 6) * 0.05}s">
-              <div><div class="nail-name">${esc(i.name)}</div>${i.description ? `<div class="nail-sub">${esc(i.description)}</div>` : ''}</div>
-              <div class="nail-meta">
-                ${i.duration ? `<span class="nail-duration">${i.duration} min</span>` : ''}
-                <button type="button" class="btn-book-mini" data-item-id="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">${T.book}</button>
-              </div>
-            </div>`).join('')}
-          </div>
-        </div>`).join('')}
-      </div>
-    </div>`).join('');
-  panels.querySelectorAll('.slide-up').forEach(el => io.observe(el));
 }
 
 /* ── Accordion ── */
@@ -2170,22 +2227,24 @@ function openLB(label, src) {
   const img = document.getElementById('lb-img');
   img.src = src;
   img.alt = label;
-  document.getElementById('lb').classList.add('open');
+  const lb = document.getElementById('lb');
+  lb.classList.add('open');
+  lb.inert = false;
   document.body.style.overflow = 'hidden';
 }
 function closeLB() {
-  document.getElementById('lb').classList.remove('open');
+  const lb = document.getElementById('lb');
+  lb.classList.remove('open');
+  lb.inert = true;
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLB(); });
 
-/* ── Booking: service dropdown ── */
-function buildServiceOptions(categories) {
-  const sel = document.getElementById('serviceSelect');
-  if (!sel) return;
-  sel.innerHTML = categories.map(c =>
-    `<optgroup label="${esc(c.name)}">${c.groups.flatMap(g => g.items).map(i =>
-      `<option value="${esc(i.itemId)}" data-variant-id="${esc(i.variantId)}" data-name="${esc(i.name)}">${esc(i.name)}</option>`
+/* ── Booking: service dropdown, mirroring the visible price list ── */
+function buildServiceOptions(set) {
+  document.getElementById('serviceSelect').innerHTML = [...set.querySelectorAll('.service-panel')].map(p =>
+    `<optgroup label="${esc(p.dataset.category)}">${[...p.querySelectorAll('.btn-book-mini')].map(b =>
+      `<option value="${esc(b.dataset.itemId)}" data-variant-id="${esc(b.dataset.variantId)}" data-name="${esc(b.dataset.name)}">${esc(b.dataset.name)}</option>`
     ).join('')}</optgroup>`
   ).join('');
 }
@@ -2196,41 +2255,29 @@ document.getElementById('bookBtn').addEventListener('click', e => {
   onBook({ itemId: opt.value, variantId: opt.dataset.variantId }, e.currentTarget);
 });
 
-/* ── Ela / Ele switch (re-renders the list and dropdown, remembers the choice) ── */
-function showGender(gender, categories, previous) {
-  const active = previous?.[document.querySelector('.snav-btn.active')?.dataset.panel]?.name;
+/* ── Ela / Ele switch (swaps the list and dropdown, remembers the choice) ── */
+function showGender(gender) {
+  const active = document.querySelector('#serviceNav .service-set:not([hidden]) .snav-btn.active')?.dataset.category;
   document.querySelectorAll('#genderSwitch button').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.gender === gender)));
-  renderServices(categories);
-  buildServiceOptions(categories);
+  document.querySelectorAll('.service-set').forEach(set => { set.hidden = set.dataset.gender !== gender; });
+  buildServiceOptions(document.querySelector(`#servicePanels .service-set[data-gender="${gender}"]`));
   // Stay on the same category when it exists for the other gender too.
-  const idx = categories.findIndex(c => c.name === active);
-  if (idx > 0) document.querySelector(`.snav-btn[data-panel="${idx}"]`).click();
+  const same = [...document.querySelectorAll(`#serviceNav .service-set[data-gender="${gender}"] .snav-btn`)]
+    .find(b => b.dataset.category === active);
+  same?.click();
 }
 
-fetch('{{page.assets}}assets/services.json')
-  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-  .then(data => {
-    const services = data[document.documentElement.lang];
-    let gender = 'ela';
-    try { if (localStorage.getItem('gender') === 'ele') gender = 'ele'; } catch (err) {}
-    showGender(gender, services[gender]);
-    document.getElementById('genderSwitch').addEventListener('click', e => {
-      const btn = e.target.closest('button[data-gender]');
-      if (!btn || btn.dataset.gender === gender) return;
-      const previous = services[gender];
-      gender = btn.dataset.gender;
-      try { localStorage.setItem('gender', gender); } catch (err) {}
-      showGender(gender, services[gender], previous);
-    });
-  })
-  .catch(err => {
-    console.error('Could not load services', err);
-    document.getElementById('servicePanels').innerHTML =
-      `<p class="nail-sub">${T.servicesUnavailable} <a href="https://wa.me/4917660942863" target="_blank" rel="noopener">WhatsApp</a>.</p>`;
-    document.getElementById('serviceSelect').disabled = true;
-    document.getElementById('bookBtn').disabled = true;
-  });
+let gender = 'ela';
+try { if (localStorage.getItem('gender') === 'ele') gender = 'ele'; } catch (err) {}
+showGender(gender);
+document.getElementById('genderSwitch').addEventListener('click', e => {
+  const btn = e.target.closest('button[data-gender]');
+  if (!btn || btn.dataset.gender === gender) return;
+  gender = btn.dataset.gender;
+  try { localStorage.setItem('gender', gender); } catch (err) {}
+  showGender(gender);
+});
 </script>
 </body>
 </html>

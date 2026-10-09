@@ -3,11 +3,16 @@
 Usage: render_i18n.py <template.html> <i18n_dir> <out_dir>
 
 Writes <out_dir>/index.html (German, the default), <out_dir>/pt/index.html, and
-the robots.txt and sitemap.xml that point search engines at both.
+the robots.txt and sitemap.xml that point search engines at both. The service
+list comes from <out_dir>/assets/services.json (see csv_to_json.py), so build
+that first; it is written into the page so search engines see it without
+running the script.
 Placeholders look like {{key}}; values come from <i18n_dir>/<lang>.json and may
 contain inline HTML. Keys starting with "js." are collected into {{js}}, a JSON
 object the page script reads as T. The build fails on any missing translation.
 """
+import datetime
+import html
 import json
 import os
 import re
@@ -27,6 +32,58 @@ def load(i18n_dir, filename):
         return json.load(f)
 
 
+def esc(value):
+    return html.escape(str(value or ''))
+
+
+def service_markup(categories, gender, book_label, visible):
+    """The category buttons and panels for one gender, as the page script used to build them."""
+    hidden = '' if visible else ' hidden'
+    nav = ''.join(f'''
+          <button class="snav-btn{' active' if ci == 0 else ''}" data-panel="{gender}-{ci}" data-category="{esc(c['name'])}">
+            <span class="snav-num">{ci + 1:02d}</span> {esc(c['name'])}
+          </button>''' for ci, c in enumerate(categories))
+    panels = []
+    for ci, c in enumerate(categories):
+        blocks = []
+        for gi, g in enumerate(c['groups']):
+            items = []
+            for ii, i in enumerate(g['items']):
+                sub = f'<div class="nail-sub">{esc(i["description"])}</div>' if i['description'] else ''
+                duration = f'<span class="nail-duration">{i["duration"]} min</span>' if i['duration'] else ''
+                items.append(f'''
+              <div class="nail-item slide-up" style="transition-delay:{min(ii, 6) * 0.05:g}s">
+                <div><div class="nail-name">{esc(i['name'])}</div>{sub}</div>
+                <div class="nail-meta">
+                  {duration}
+                  <button type="button" class="btn-book-mini" data-item-id="{esc(i['itemId'])}" data-variant-id="{esc(i['variantId'])}" data-name="{esc(i['name'])}">{book_label}</button>
+                </div>
+              </div>''')
+            title = f'<div class="wax-group-title">{esc(g["name"])}</div>' if g['name'] else ''
+            blocks.append(f'''
+          <div class="wax-block slide-up" style="transition-delay:{min(gi, 4) * 0.08:g}s">
+            {title}
+            <div class="nail-list">{''.join(items)}
+            </div>
+          </div>''')
+        panels.append(f'''
+        <div class="service-panel{' active' if ci == 0 else ''}" id="panel-{gender}-{ci}" data-category="{esc(c['name'])}">
+          <div class="wax-groups">{''.join(blocks)}
+          </div>
+        </div>''')
+    return (f'<div class="service-set" data-gender="{gender}"{hidden}>{nav}\n        </div>',
+            f'<div class="service-set" data-gender="{gender}"{hidden}>{"".join(panels)}\n      </div>')
+
+
+def service_values(services, strings):
+    # "Für sie" is shown by default; the page script switches to the visitor's last choice.
+    sets = [service_markup(services[g], g, strings['js.book'], g == 'ela') for g in ('ela', 'ele')]
+    return {
+        'page.serviceNav': ''.join(nav for nav, _ in sets),
+        'page.servicePanels': ''.join(panels for _, panels in sets),
+    }
+
+
 def page_values(strings, lang, path, og_locale):
     depth = path.count('/')
     up = '../' * depth
@@ -37,6 +94,7 @@ def page_values(strings, lang, path, og_locale):
         'page.root': up or './',
         'page.url': SITE_URL + path,
         'site.url': SITE_URL,
+        'site.year': str(datetime.date.today().year),
         'page.ogLocale': og_locale,
         'page.ogLocaleAlt': next(og for l, _, _, og in LOCALES if l != lang),
         'page.descriptionJson': json.dumps(strings['meta.description'], ensure_ascii=False),
@@ -91,12 +149,20 @@ def main(template_path, i18n_dir, out_dir):
     if unused:
         print(f'warning: unused keys: {", ".join(unused)}')
 
+    services_path = os.path.join(out_dir, 'assets', 'services.json')
+    if not os.path.exists(services_path):
+        sys.exit(f'{services_path} not found; run csv_to_json.py first')
+    with open(services_path, encoding='utf-8') as f:
+        services = json.load(f)
+
     for lang, strings, path, og in dictionaries:
-        html = render(template, page_values(strings, lang, path, og), lang)
+        values = page_values(strings, lang, path, og)
+        values.update(service_values(services[lang], strings))
+        page = render(template, values, lang)
         dst = os.path.join(out_dir, path, 'index.html')
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         with open(dst, 'w', encoding='utf-8') as f:
-            f.write(html)
+            f.write(page)
         print(f'Wrote {dst} ({lang})')
 
     write(os.path.join(out_dir, 'robots.txt'), f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}sitemap.xml\n')
