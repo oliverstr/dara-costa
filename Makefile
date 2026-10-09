@@ -1,5 +1,5 @@
 # Local build + preview, mirroring .github/workflows/pages.yml.
-#   make          build services.json and both language pages
+#   make          build services.json, both language pages, robots.txt and sitemap.xml
 #   make serve    build, then serve public/live at http://localhost:$(PORT)
 #   make clean    remove generated files
 
@@ -24,4 +24,4 @@ serve: build
 	python3 -m http.server $(PORT) -d $(OUT)
 
 clean:
-	rm -rf $(OUT)/index.html $(OUT)/pt $(OUT)/assets/services.json
+	rm -rf $(OUT)/index.html $(OUT)/pt $(OUT)/robots.txt $(OUT)/sitemap.xml $(OUT)/assets/services.json

@@ -9,6 +9,45 @@
 <link rel="alternate" hreflang="de" href="{{site.url}}">
 <link rel="alternate" hreflang="pt-BR" href="{{site.url}}pt/">
 <link rel="alternate" hreflang="x-default" href="{{site.url}}">
+<link rel="icon" href="{{page.assets}}assets/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="{{page.assets}}assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dara Costa">
+<meta property="og:url" content="{{page.url}}">
+<meta property="og:title" content="{{meta.title}}">
+<meta property="og:description" content="{{meta.description}}">
+<meta property="og:image" content="{{site.url}}assets/{{meta.ogImage}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="Dara Costa">
+<meta property="og:locale" content="{{page.ogLocale}}">
+<meta property="og:locale:alternate" content="{{page.ogLocaleAlt}}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "@id": "{{site.url}}#business",
+  "name": "Dara Costa",
+  "url": "{{page.url}}",
+  "description": {{page.descriptionJson}},
+  "inLanguage": "{{page.lang}}",
+  "image": "{{site.url}}assets/{{meta.ogImage}}",
+  "logo": "{{site.url}}assets/apple-touch-icon.png",
+  "telephone": "+4917660942863",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ahlbecker Straße 19",
+    "postalCode": "10437",
+    "addressLocality": "Berlin",
+    "addressRegion": "Berlin",
+    "addressCountry": "DE"
+  },
+  "areaServed": "Berlin Prenzlauer Berg",
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Ahlbecker+Stra%C3%9Fe+19%2C+10437+Berlin",
+  "sameAs": ["https://instagram.com/daracosta_beauty"]
+}
+</script>
 <script>
 /* Only an explicit pick in the language switcher redirects; first visits always get German. */
 try {

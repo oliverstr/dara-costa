@@ -4,3 +4,5 @@ public/live/assets/services.json
 # Rendered from src/index.template.html + i18n/*.json (see .github/scripts/render_i18n.py)
 public/live/index.html
 public/live/pt/
+public/live/robots.txt
+public/live/sitemap.xml
