@@ -1293,6 +1293,15 @@ button { font: inherit; }
 .map-wrap iframe {
   width: 100%; height: 100%; border: none; display: block;
 }
+.map-consent {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  padding: 32px; text-align: center;
+}
+.map-consent p { max-width: 340px; font-size: 13px; line-height: 1.6; color: var(--text); }
+.map-consent p a, .map-open { color: var(--text); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.map-open { font-size: 12px; }
+.map-wrap:not(.loaded) .map-pin { display: none; }
 .map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -100%); pointer-events: none; z-index: 2; }
 .map-pin-ring {
   position: absolute; bottom: -4px; left: 50%;
@@ -1352,6 +1361,8 @@ button { font: inherit; }
   gap: 12px;
 }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+.footer-copy a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer-copy a:hover { color: var(--white); }
 .footer-flag {
   display: inline-flex;
   align-items: center;
@@ -1837,11 +1848,19 @@ button { font: inherit; }
       </div>
       <div class="slide-up d2">
         <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0!2d13.4226!3d52.5441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e4e76d7db53%3A0x1!2sAhlbecker+Stra%C3%9Fe+19%2C+10437+Berlin!5e0!3m2!1s{{location.mapLang}}!2sde!4v1699000000000"
-            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            title="{{location.mapTitle}}">
-          </iframe>
+          <!-- Google Maps only loads after a click: embedding it sends the visitor's IP to Google (see /datenschutz/#maps). -->
+          <template id="mapFrame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.0!2d13.4226!3d52.5441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e4e76d7db53%3A0x1!2sAhlbecker+Stra%C3%9Fe+19%2C+10437+Berlin!5e0!3m2!1s{{location.mapLang}}!2sde!4v1699000000000"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="{{location.mapTitle}}">
+            </iframe>
+          </template>
+          <div class="map-consent" id="mapConsent">
+            <p>{{location.mapConsent}} <a href="{{page.root}}datenschutz/#maps">{{location.mapPrivacy}}</a></p>
+            <button type="button" class="btn btn-dark" id="mapLoad">{{location.mapLoad}}</button>
+            <a class="map-open" href="https://www.google.com/maps/search/?api=1&amp;query=Ahlbecker+Stra%C3%9Fe+19%2C+10437+Berlin" target="_blank" rel="noopener">{{location.mapOpen}}</a>
+          </div>
           <div class="map-pin">
             <svg width="30" height="40" viewBox="0 0 30 40" fill="none"><path d="M15 0C6.7 0 0 6.7 0 15c0 10 15 25 15 25s15-15 15-25C30 6.7 23.3 0 15 0Z" fill="#8B0000"/><circle cx="15" cy="15" r="6" fill="#FDFBF7"/></svg>
             <span class="map-pin-ring"></span>
@@ -1884,7 +1903,7 @@ button { font: inherit; }
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© {{site.year}} {{footer.copy}}</span>
+      <span class="footer-copy">© {{site.year}} {{footer.copy}} · <a href="{{page.root}}impressum/">{{footer.imprint}}</a> · <a href="{{page.root}}datenschutz/">{{footer.privacy}}</a></span>
       <div class="lang-switch" role="group" aria-label="{{a11y.language}}"><a href="{{page.root}}" hreflang="de" lang="de"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="4.67" fill="#000"/><rect y="4.67" width="20" height="4.67" fill="#DD0000"/><rect y="9.33" width="20" height="4.67" fill="#FFCE00"/></svg>DE</a><span aria-hidden="true">·</span><a href="{{page.root}}pt/" hreflang="pt-BR" lang="pt-BR"><svg class="lang-flag" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009C3B"/><polygon points="10,1.5 18.5,7 10,12.5 1.5,7" fill="#FEDF00"/><circle cx="10" cy="7" r="3.2" fill="#002776"/></svg>PT</a></div>
       <span class="footer-flag">
         <svg width="20" height="14" viewBox="0 0 20 14" aria-label="{{footer.flagLabel}}">
@@ -2054,6 +2073,13 @@ document.getElementById('serviceNav').addEventListener('click', e => {
   document.querySelectorAll('#panel-' + key + ' .slide-up').forEach(el => {
     el.classList.add('revealed');
   });
+});
+
+/* ── Map: load Google Maps only on request ── */
+document.getElementById('mapLoad').addEventListener('click', () => {
+  const consent = document.getElementById('mapConsent');
+  consent.replaceWith(document.getElementById('mapFrame').content.cloneNode(true));
+  document.querySelector('.map-wrap').classList.add('loaded');
 });
 
 /* ── Booking CTA ── */
