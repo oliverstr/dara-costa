@@ -466,6 +466,13 @@ button { font: inherit; }
   overflow: hidden;
   background: #c8c0b4;
 }
+.hero-img-cell img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .img-placeholder {
   position: absolute;
   inset: 0;
@@ -1411,12 +1418,24 @@ button { font: inherit; }
     </svg>
     <div class="hero-visual-inner">
       <div class="hero-img-top">
-        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/portrait.jpeg') center 22%/cover"></div>
-        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_2.jpeg') center 18%/cover"></div>
+        <div class="hero-img-cell"><picture>
+          <source type="image/avif" srcset="{{page.assets}}assets/hero/dara-costa-kosmetikerin-berlin-480.avif 480w, {{page.assets}}assets/hero/dara-costa-kosmetikerin-berlin-960.avif 960w" sizes="(max-width: 1024px) 50vw, 25vw">
+          <img src="{{page.assets}}assets/hero/dara-costa-kosmetikerin-berlin.jpg" width="1086" height="1448" alt="{{hero.img1.alt}}" style="object-position:center 22%" fetchpriority="high">
+        </picture></div>
+        <div class="hero-img-cell"><picture>
+          <source type="image/avif" srcset="{{page.assets}}assets/hero/manikuere-berlin-prenzlauer-berg-480.avif 480w, {{page.assets}}assets/hero/manikuere-berlin-prenzlauer-berg-960.avif 960w" sizes="(max-width: 1024px) 50vw, 25vw">
+          <img src="{{page.assets}}assets/hero/manikuere-berlin-prenzlauer-berg.jpg" width="1086" height="1448" alt="{{hero.img2.alt}}" style="object-position:center 18%">
+        </picture></div>
       </div>
       <div class="hero-img-bottom">
-        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_1.jpeg') center 32%/cover"></div>
-        <div class="hero-img-cell" style="background:url('{{page.assets}}assets/service_3.jpeg') center 18%/cover"></div>
+        <div class="hero-img-cell"><picture>
+          <source type="image/avif" srcset="{{page.assets}}assets/hero/pedikuere-behandlung-berlin-480.avif 480w, {{page.assets}}assets/hero/pedikuere-behandlung-berlin-960.avif 960w" sizes="(max-width: 1024px) 50vw, 25vw">
+          <img src="{{page.assets}}assets/hero/pedikuere-behandlung-berlin.jpg" width="1086" height="1448" alt="{{hero.img3.alt}}" style="object-position:center 32%">
+        </picture></div>
+        <div class="hero-img-cell"><picture>
+          <source type="image/avif" srcset="{{page.assets}}assets/hero/pedikuere-rote-naegel-480.avif 480w, {{page.assets}}assets/hero/pedikuere-rote-naegel-960.avif 941w" sizes="(max-width: 1024px) 50vw, 25vw">
+          <img src="{{page.assets}}assets/hero/pedikuere-rote-naegel.jpg" width="941" height="1672" alt="{{hero.img4.alt}}" style="object-position:center 18%">
+        </picture></div>
       </div>
     </div>
   </div>
